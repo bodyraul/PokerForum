@@ -2,11 +2,11 @@ POST http://localhost:5000/user/register
 Content-Type: application/json
 
 {
-    "nom":"peria",
-    "prenom":"aurelien",
-    "pseudonyme":"bobyaa",
-    "email":"lol",
-    "password":"fanta"
+    "nom":"b",
+    "prenom":"b",
+    "pseudonyme":"b",
+    "email":"b",
+    "password":"b"
 }
 
 ###
@@ -15,19 +15,19 @@ POST http://localhost:5000/user/login
 Content-Type: application/json
 
 {
-    "email":"lol",
-    "password":"fanta"
+    "email":"b",
+    "password":"b"
 }
 
 ###
 
 POST http://localhost:5000/post/creerPost
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTkyZDU1M2QzY2M0Mzc1ODFiZWQ2NCIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTc1MTMyMDY3OH0.MV54HIXI36JgRdAdZY24EKTyeRb_p79aOwp-iW-tvAY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJhZWM4MTRmYjZkZTg2YzVjMGZmMCIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTc1MTM3MDcwNX0.XRDa0j6bT6TOSMUj5tsffPPLbpJXrkbgMiALLbngfXM
 
 {
     "categorie":"MTT",
-    "titre":"bonjour"
+    "titre":"hey"
 }
 
 ###
