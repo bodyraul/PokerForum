@@ -1,0 +1,90 @@
+POST http://localhost:5000/user/register                                                                              
+Content-Type: application/json
+
+{
+    "nom":"peria",
+    "prenom":"aurelien",
+    "pseudonyme":"bobyaa",
+    "email":"lol",
+    "password":"fanta"
+}
+
+###
+
+POST http://localhost:5000/user/login                                                                              
+Content-Type: application/json
+
+{
+    "email":"lol",
+    "password":"fanta"
+}
+
+###
+
+POST http://localhost:5000/post/creerPost
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTkyZDU1M2QzY2M0Mzc1ODFiZWQ2NCIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTc1MTMyMDY3OH0.MV54HIXI36JgRdAdZY24EKTyeRb_p79aOwp-iW-tvAY
+
+{
+    "categorie":"MTT",
+    "titre":"bonjour"
+}
+
+###
+
+GET  http://localhost:5000/post
+Content-Type: application/json
+
+###
+
+POST http://localhost:5000/Message/creerMessage/68592d633d3cc437581bed68
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTkyZDU1M2QzY2M0Mzc1ODFiZWQ2NCIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTc1MDY3NDc3NH0.6b0UtOFk0_rhjVwzqi-3xU1_DFP65SjhXNW2mNhO9cA
+
+{
+    "titre":"hello deux",
+    "contenu":"nice nice"
+}
+
+###
+
+GET http://localhost:5000/Message/messagePost/68592d633d3cc437581bed68
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTkxMmJlODg3Zjg2Y2E1MTY0ODllZSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTc1MDY3NDA4NH0.9e0RHyOV1wZYvH5apJ4EZNjK58PhijSc2bAJOAFq2Ik
+
+###
+
+POST http://localhost:5000/Categorie/creerCategorie
+Content-Type: application/json
+
+{
+    "titre":"Règles",
+    "contenu":"Discussion sur les règles du poker."
+}
+
+###
+
+GET  http://localhost:5000/Categorie/afficherAllCategories
+Content-Type: application/json
+
+###
+
+GET  http://localhost:5000/post/posteParCategorie/MTT
+Content-Type: application/json
+
+###
+
+GET  http://localhost:5000/post/recherchepostesParPseudo/bobyaa
+Content-Type: application/json
+
+
+###
+
+GET  http://localhost:5000/post/recherchepostesParmot/bon
+Content-Type: application/json
+
+
+
+
+
+
