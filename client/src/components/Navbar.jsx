@@ -16,26 +16,26 @@ export default function Navbar({signInProps,signUpProps,setSignInProps,setSignUp
 
   return (
     <div className="fixed top-0 z-50 h-24 w-screen  flex items-center justify-center ">
-        <nav className="sup1600:w-1200 h-20 services-item w-3/4 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100%  flex items-center justify-evenly rounded-bl-3xl rounded-tr-3xl ">
+        <nav className="sup1600:w-1200 h-20  w-3/4 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100%  flex items-center justify-evenly rounded-bl-3xl rounded-tr-3xl ">
           <Link
-            className="sup1600:text-3xl text-blanc text-xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            className="sup1600:text-3xl text-blanc text-xl outline-none  no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
             to={"/"}
           >
             Accueil
           </Link>
           <Link
-            className="sup1600:text-3xl text-blanc text-xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            className="sup1600:text-3xl text-blanc text-xl outline-none no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
           >
             Forum{" "}
           </Link>
           <Link
-            className="sup1600:text-3xl text-blanc text-xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            className="sup1600:text-3xl text-blanc text-xl outline-none  no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
             onClick={clickInscription}
           >
             Inscription{" "}
           </Link>
            <Link
-            className="sup1600:text-3xl text-blanc text-xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            className="sup1600:text-3xl text-blanc text-xl outline-none  no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
             onClick={clickConnexion}
           >
             Connexion{" "}

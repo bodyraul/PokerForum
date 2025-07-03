@@ -10,11 +10,15 @@ import SignUp from "./components/SignUp";
 import AuthContext from "./Context/AuthContext";
 
 function App() {
-
   const [signIn, setSignIn] = useState(false);
   const [signUp, setSignUp] = useState(false);
   const initToken = localStorage.getItem("token")? localStorage.getItem("token") : "";
   const [token, settoken] = useState(initToken);
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   return (
     <div >
@@ -25,7 +29,7 @@ function App() {
           <SignIn signInProps={signIn}   setSignInProps={setSignIn} />
           <Routes>
               <Route path="/" element={<Accueil/>} />
-              <Route path="/forum" element={<Forum/>} />
+              <Route path="/forum" element={<Forum config={config} />} />
               <Route path="/MessagePosts" element={<MessagePosts/>} />
           </Routes>
         </AuthContext.Provider>
