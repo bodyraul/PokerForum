@@ -5,7 +5,7 @@ import BtnPost from '../componentsResutilisable/Forum/BtnPost';
 import AfficheCategorie from './AfficheCategorie';
 import choiseCategoriesSearch from "../fonction/ChoiseCategoriesSearch"
 
-export default function RechercheParCategorie({setlistePost}) {
+export default function RechercheParCategorie({setlistePost,categories}) {
     const [boolCategorieSearch, setboolCategorieSearch] = useState(false);
     const inputSujet = useRef();
     const inputAuteur = useRef();
@@ -24,7 +24,7 @@ export default function RechercheParCategorie({setlistePost}) {
           <div className="sup670:text-lg py-1 px-0 w-32 my-0 mx-4 bg-blanc text-vertFoncer border-solid border border-vertFoncer text-sm transition-all duration-200 ease-in-out flex items-center justify-around relative hover:cursor-pointer"
             onClick={cliqueCategories} 
           >
-          <AfficheCategorie boolCategorieSearch={boolCategorieSearch} choiseCategoriesSearch={choiseCategoriesSearch} setlistePost={setlistePost} />
+          <AfficheCategorie boolCategorieSearch={boolCategorieSearch} choiseCategoriesSearch={choiseCategoriesSearch} setlistePost={setlistePost} categories={categories}/>
             <span>Catégories</span>
             <img className="w-5" alt=""></img>
           </div>

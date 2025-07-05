@@ -1,9 +1,7 @@
-import React, {useRef,useState } from 'react'
-import UseLoadCategories from '../customHoocks/UseLoadCategories';
+import React from 'react'
 
 
-export default function AfficheCategorie({boolCategorieSearch,choiseCategoriesSearch,setlistePost}) {
-    const categories = UseLoadCategories();
+export default function AfficheCategorie({boolCategorieSearch,choiseCategoriesSearch,setlistePost,categories}) {
     if(boolCategorieSearch){
         return(
             <div className="absolute bg-blanc w-32  bottom-[-240px] z-10 p-0 border-solid border border-vertClair border-b-0 flex-col items-center justify-center">

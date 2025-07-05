@@ -25,6 +25,7 @@ export default function Navbar({signInProps,signUpProps,setSignInProps,setSignUp
           </Link>
           <Link
             className="sup1600:text-3xl text-blanc text-xl outline-none no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            to={"/forum"}
           >
             Forum{" "}
           </Link>

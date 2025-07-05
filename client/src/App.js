@@ -8,17 +8,12 @@ import { useState } from "react";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import AuthContext from "./Context/AuthContext";
+import UseTokenConfig from "./customHoocks/UseTokenConfig";
 
 function App() {
   const [signIn, setSignIn] = useState(false);
   const [signUp, setSignUp] = useState(false);
-  const initToken = localStorage.getItem("token")? localStorage.getItem("token") : "";
-  const [token, settoken] = useState(initToken);
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  const {token,settoken,config}=UseTokenConfig();
 
   return (
     <div >
@@ -30,7 +25,7 @@ function App() {
           <Routes>
               <Route path="/" element={<Accueil/>} />
               <Route path="/forum" element={<Forum config={config} />} />
-              <Route path="/MessagePosts" element={<MessagePosts/>} />
+              <Route path="/messagePost/:id" element={<MessagePosts/>} />
           </Routes>
         </AuthContext.Provider>
       </BrowserRouter>

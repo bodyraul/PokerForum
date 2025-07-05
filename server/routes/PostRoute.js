@@ -70,6 +70,20 @@ router.get("/",async(req,res)=>{
     }
  });
 
+
+ router.get("/lePoste/:id",async(req,res)=>{
+    try {
+        const idPost = req.params.id;
+        const post =await Post.findOne({_id:idPost});
+        res.json(post);
+        
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+
+ })
+
+
  router.get("/posteParCategorie/:categorie",async(req,res)=>{
     try {
         const categorie = req.params.categorie;

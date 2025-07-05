@@ -10,3 +10,52 @@
   margin: 0;
   
 }
+
+.VisibleContenu {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin-bottom: 40px;
+  color: #547981;
+  font-size: 18px;
+  height: 45px;
+  padding: 0px 10px;
+}
+.VisibleContenu .NoVisibleContenu {
+  overflow: visible;
+  overflow-y: visible;
+  display: block;
+  top: 0%;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  z-index: -1;
+}
+
+.VisibleContenu.active::-webkit-scrollbar {
+  width: 12px;
+}
+
+.VisibleContenu.noActive::-webkit-scrollbar {
+  width: 0px;
+}
+
+.VisibleContenu::-webkit-scrollbar-track {
+  background: #44ADA8;
+  border-radius: 5px;
+}
+
+.VisibleContenu::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 3px solid #44ADA8;
+}
+
+.VisibleContenu.active::-webkit-scrollbar {
+    width: 12px; 
+  }
+.VisibleContenu.noActive::-webkit-scrollbar {
+width: 0px; 
+}

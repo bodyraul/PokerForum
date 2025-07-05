@@ -37,9 +37,9 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5000/Message/creerMessage/68592d633d3cc437581bed68
+POST http://localhost:5000/Message/creerMessage/6869a01d21c3b7454a276589
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTkyZDU1M2QzY2M0Mzc1ODFiZWQ2NCIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTc1MDY3NDc3NH0.6b0UtOFk0_rhjVwzqi-3xU1_DFP65SjhXNW2mNhO9cA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJhZWM4MTRmYjZkZTg2YzVjMGZmMCIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTc1MTQ4OTA4OH0.SBMy26qCsUwiPwGPmazfXbwYG-uuIGh4WKJj-kW9cWI
 
 {
     "titre":"hello deux",
@@ -70,6 +70,11 @@ Content-Type: application/json
 ###
 
 GET  http://localhost:5000/post/posteParCategorie/MTT
+Content-Type: application/json
+
+###
+
+GET  http://localhost:5000/post/lePoste/68668c0924307d7ad83ef4ea
 Content-Type: application/json
 
 ###

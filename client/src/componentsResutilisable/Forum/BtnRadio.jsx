@@ -7,7 +7,7 @@ export default function BtnRadio({categories,setradioValue}) {
         {categories.map((element) => {
             return (
             <p
-                class="sup670:text-base text-sm flex items-center justify-between w-full text-vertFoncer  pb-6"
+                className="sup670:text-base text-sm flex items-center justify-between w-full text-vertFoncer  pb-6"
                 key={element._id}
             >
                 <label htmlFor="">- {element.titre}</label>
