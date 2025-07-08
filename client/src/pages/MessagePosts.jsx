@@ -1,6 +1,5 @@
-import React,{useEffect,useState,useRef} from 'react'
+import React,{useEffect,useState,useRef,useMemo,useContext} from 'react'
 import { useParams } from 'react-router-dom';
-import { useContext } from 'react';
 import AuthContext from '../Context/AuthContext';
 import axios from 'axios';
 import ThemePost from '../componentsResutilisable/Forum/ThemePost';
@@ -9,26 +8,64 @@ import ContenuPost from '../componentsResutilisable/Forum/ContenuPost';
 export default function MessagePosts() {
   const titrecontenu = useRef();
   const { id } = useParams();
+  const [valueMsgForm, setvalueMsgForm] = useState("");
   const { token } = useContext(AuthContext);
   const [post, setpost] = useState({}); 
   const [message, setMessage] = useState([]); 
-  const config = {
+  const [messageErreur, setmessageErreur] = useState("");
+  const paraMessageErreur = useRef();
+
+
+  const config = useMemo(() => {
+    return {
         headers: {
         Authorization: `Bearer ${token}`,
         },
-    };
+    }
+  }, [token])
+
+
+  const valideFormMessage =  () => {
+    paraMessageErreur.current.style.color = "#ef4444";
+    if (!token) {
+      return setmessageErreur(
+        "Vous devez être connecté pour écrire un message."
+      );
+    }
+    if (valueMsgForm.length === 0) {
+      return setmessageErreur("le message ne peut pas être vide");
+    }
+    if (valueMsgForm.length > 400) {
+      return setmessageErreur("le message ne peut pas dépasser 400 caractères");
+    }
+    
+    const newMessage = {};
+    newMessage.contenu = valueMsgForm;
+
+     axios
+      .post(`http://localhost:5000/message/creerMessage/${id}`, newMessage, config)
+      .then((res) => {
+        paraMessageErreur.current.style.color = "#44ADA8";
+        setMessage([...message,res.data]);
+        setmessageErreur("message Créé.");
+        setvalueMsgForm("");
+      })
+      .catch((err) => console.log(err));
+  };
+
 
   useEffect(() => {
+    console.log("message")
     async function message() {
       await axios
-        .get(`http://localhost:5000/Message/messagePost/${id}`)
+        .get(`http://localhost:5000/message/messagePost/${id}`)
         .then((res) => {
           setMessage(res.data);
         })
         .catch((err) => console.log(err));
     }
 
-    async function lePoste(params) {
+    async function lePoste() {
       await axios
         .get(`http://localhost:5000/post/lePoste/${id}`, config)
         .then((res) => {
@@ -36,14 +73,13 @@ export default function MessagePosts() {
         })
         .catch((err) => console.log(err));
     }
-     message();
-     lePoste();
-
-  }, [])
+    message();
+    lePoste();
+  }, [config,id])
   
   return (
-    <div class="sup990:mt-48 w-screen mt-10">
-      <p class="sup670:text-4xl text-center text-2xl text-vertFoncer mt-12">
+    <div className="sup990:mt-48 w-[95%]  mt-10">
+      <p className="sup670:text-4xl text-center text-2xl text-vertFoncer mt-12">
         {" "}
         Post selectionné
       </p>
@@ -55,7 +91,6 @@ export default function MessagePosts() {
             <ThemePost>Date</ThemePost>
         </div>
         <div
-            key={post._id}
             className="h-36 flex-col border-solid border border-gris bg-blanc text-xl hover:cursor-pointer"
           >
             <div className=" h-12 flex items-center bg-blanc text-vertFoncer ">
@@ -75,16 +110,15 @@ export default function MessagePosts() {
             </div>
           </div>
       </div>
-      <div class="sup990:w-900 w-full mx-auto mt-12 mb-0">
+      <div className="sup990:w-[990px] w-full mx-auto mt-12 mb-0">
         {message.map((element) => {
           return (
             <div
               key={element._id}
-              class=" bg-blanc mb-7 p-9 border-solid border border-gris"
+              className=" bg-blanc mb-7 p-9 border-solid border border-gris"
             >
-              <div class="pb-5 text-vertClair font-bold flex items-center justify-between">
-                <div class=" flex items-center justify-between">
-                  {/* {afficheImgOnMajImg(element)} */}
+              <div className="pb-5 text-vertClair font-bold flex items-center justify-between">
+                <div className=" flex items-center justify-between">
                   <span className="sup670:text-base text-xs">
                     {" " + element.pseudoCreateurMessage}
                   </span>
@@ -93,9 +127,8 @@ export default function MessagePosts() {
                   {element.dateCreation}
                 </span>
               </div>
-              <p className="VisibleContenu active" ref={titrecontenu}>
+              <p className="VisibleContenu active " ref={titrecontenu}>
                 {element.contenu}
-                <span className="NoVisibleContenu"> {element.contenu} </span>
               </p>
             </div>
           );
@@ -116,35 +149,35 @@ export default function MessagePosts() {
             <textarea
               className="sup1256:w-auto sup670:text-base w-full outline-vertFoncer border-solid border border-vertFoncer text-vertFoncer py-3 px-2 resize-none text-xs"
               // onClick={onclickTextArea}
-              // value={valueMsgForm}
-              // onChange={(e) => setvalueMsgForm(e.target.value)}
+              value={valueMsgForm}
+              onChange={(e) => setvalueMsgForm(e.target.value)}
               rows={15}
               cols={80}
               name=""
               id=""
             ></textarea>
           </div>
-          {/* <p className="text-error text-xl pb-6" ref={paraMessageErreur}>
+          <p className="text-error text-xl pb-6" ref={paraMessageErreur}>
             {" "}
             {messageErreur}{" "}
-          </p> */}
+          </p>
           <button
             className="sup670:text-base text-xs py-3 px-4 text-vertFoncer border-solid border border-vertFoncer bg-blanc rounded-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertFoncer hover:text-blanc"
-            // onClick={valideFormMessage}
+            onClick={valideFormMessage}
           >
             Créer
           </button>
         </div>
-        <div class="sup1256:w-2/5 sup670:px-6 py-7 px-0 w-full flex-col items-center ">
-          <div class="sup670:w-96  sup1256:w-400 sup1400:ml-0 border-solid border-2 border-gris w-52 h-24 ml-8"></div>
-          <h2 class="sup670:text-2xl sup1400:ml-0 ml-8 text-xl py-6 px-0 text-vertClair">
-            Post similaire déjà créé?
+        <div className="sup1256:w-2/5 sup670:px-6 py-7 px-0 w-full flex-col items-center ">
+          <div className="sup670:w-96  sup1256:w-400 sup1400:ml-0 border-solid border-2 border-gris w-52 h-24 ml-8"></div>
+          <h2 className="sup670:text-2xl sup1400:ml-0 ml-8 text-xl py-6 px-0 text-vertClair">
+            Autre Post?
           </h2>
-          <p class="sup670:text-lg sup1400:ml-0 text-vertClair text-sm pb-6 ml-8">
+          <p className="sup670:text-lg sup1400:ml-0 text-vertClair text-sm pb-6 ml-8">
             Faites une recherche par sujet,auteur ou catégorie.
           </p>
           <button
-            class="sup990:py-3 sup670:text-base sup1400:ml-0 text-sm ml-8 w-44 py-2 px-0 text-vertClair border-solid border border-vertClair bg-blanc rounded transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertClair hover:text-blanc"
+            className="sup990:py-3 sup670:text-base sup1400:ml-0 text-sm ml-8 w-44 py-2 px-0 text-vertClair border-solid border border-vertClair bg-blanc rounded transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertClair hover:text-blanc"
             // onClick={() => navigate("/")}
           >
             Accéder à la recherche

@@ -19,28 +19,15 @@
   margin-bottom: 40px;
   color: #547981;
   font-size: 18px;
-  height: 45px;
+  height: 50px;
   padding: 0px 10px;
 }
-.VisibleContenu .NoVisibleContenu {
-  overflow: visible;
-  overflow-y: visible;
-  display: block;
-  top: 0%;
-  position: absolute;
-  width: 100%;
-  height: auto;
-  opacity: 0;
-  z-index: -1;
-}
 
-.VisibleContenu.active::-webkit-scrollbar {
+
+.VisibleContenu::-webkit-scrollbar {
   width: 12px;
 }
 
-.VisibleContenu.noActive::-webkit-scrollbar {
-  width: 0px;
-}
 
 .VisibleContenu::-webkit-scrollbar-track {
   background: #44ADA8;
@@ -53,9 +40,3 @@
   border: 3px solid #44ADA8;
 }
 
-.VisibleContenu.active::-webkit-scrollbar {
-    width: 12px; 
-  }
-.VisibleContenu.noActive::-webkit-scrollbar {
-width: 0px; 
-}

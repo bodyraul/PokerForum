@@ -42,8 +42,8 @@ export default function RechercheParCategorie({setlistePost,categories}) {
           </button>
         </div>
         <div className="sup990:w-auto w-full flex items-center justify-evenly">
-          <BtnPost boolean={true} texte="Posts"/>
-          <BtnPost boolean={false} texte="Nouveau post"/>
+          <BtnPost margin="sup990:ml-0" texte="Posts"/>
+          <BtnPost margin="" texte="Nouveau post"/>
         </div>
       </div>
   )
