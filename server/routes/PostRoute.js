@@ -75,7 +75,8 @@ router.get("/",async(req,res)=>{
     try {
         const idPost = req.params.id;
         const post =await Post.findOne({_id:idPost});
-        res.json(post);
+        const tab = [post];
+        res.json(tab);
         
     } catch (error) {
         res.status(500).json(error.message);
