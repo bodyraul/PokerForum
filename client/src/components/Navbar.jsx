@@ -1,18 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import clickInscription from '../fonction/CliqueInscription';
+import clickConnexion from '../fonction/CliqueConnexion';
 
 export default function Navbar({signInProps,signUpProps,setSignInProps,setSignUpProps}) {
-
-  const clickInscription = ()=>{
-    setSignUpProps(!signUpProps);
-    setSignInProps(false);
-  }
-
-  const clickConnexion = ()=>{
-    setSignInProps(!signInProps);
-     setSignUpProps(false);
-  }
-
 
   return (
     <div className="fixed top-0 z-50 h-24 w-screen  flex items-center justify-center ">
@@ -31,13 +22,13 @@ export default function Navbar({signInProps,signUpProps,setSignInProps,setSignUp
           </Link>
           <Link
             className="sup1600:text-3xl text-blanc text-xl outline-none  no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
-            onClick={clickInscription}
+            onClick={()=>clickInscription(setSignUpProps,setSignInProps,signUpProps)}
           >
             Inscription{" "}
           </Link>
            <Link
             className="sup1600:text-3xl text-blanc text-xl outline-none  no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
-            onClick={clickConnexion}
+            onClick={()=>clickConnexion(setSignUpProps,setSignInProps,signInProps)}
           >
             Connexion{" "}
           </Link>

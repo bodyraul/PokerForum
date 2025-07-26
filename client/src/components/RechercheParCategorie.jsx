@@ -4,25 +4,19 @@ import BtnSujetAuteur from '../componentsResutilisable/Forum/BtnSujetAuteur';
 import BtnPost from '../componentsResutilisable/Forum/BtnPost';
 import AfficheCategorie from './AfficheCategorie';
 import choiseCategoriesSearch from "../fonction/ChoiseCategoriesSearch"
+import cliqueCategories from '../fonction/CliqueCategorie';
 
 export default function RechercheParCategorie({setlistePost,categories}) {
     const [boolCategorieSearch, setboolCategorieSearch] = useState(false);
-    const inputSujet = useRef();
-    const inputAuteur = useRef();
-    const inputsearchSujetAuteur = useRef();
     const [recherchePost, setrecherchePost] = useState("");
     const [valueAuteurSujet, setvalueAuteurSujet] = useState("sujet");
-
-
-    const cliqueCategories = ()=>{
-        setboolCategorieSearch(!boolCategorieSearch);
-    }
-
+    const inputSujet = useRef();const inputAuteur = useRef();const inputsearchSujetAuteur = useRef();
+    
   return (
     <div className=" sup460:w-475  sup1256:w-11/12 sup1600:h-auto sup1600:flex sup1600:flex-row sup1600:items-center sup1600:justify-between sup1600:w-1400 py-2.5 px-0 h-80 mx-auto my-0 mt-24 flex flex-col-reverse items-center justify-evenly border-solid border border-gris w-full">
         <div>
           <div className="sup670:text-lg py-1 px-0 w-32 my-0 mx-4 bg-blanc text-vertFoncer border-solid border border-vertFoncer text-sm transition-all duration-200 ease-in-out flex items-center justify-around relative hover:cursor-pointer"
-            onClick={cliqueCategories} 
+            onClick={()=>cliqueCategories(setboolCategorieSearch,boolCategorieSearch)} 
           >
           <AfficheCategorie boolCategorieSearch={boolCategorieSearch} choiseCategoriesSearch={choiseCategoriesSearch} setlistePost={setlistePost} categories={categories}/>
             <span>Catégories</span>

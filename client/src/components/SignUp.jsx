@@ -1,8 +1,9 @@
-import React, { useEffect,useRef,useState } from 'react'
+import React, { useRef,useState } from 'react'
 import croix from "../assets/img/croix.png"
-import axios from 'axios'
 import DivLabelSignUp from '../componentsResutilisable/SignUp/DivLabelSignUp'
 import DivInputSignUp from '../componentsResutilisable/SignUp/DivInputSignUp'
+import onSubmitsSignUp from '../fonction/OnSubmitSignUp'
+import UseLoadSignUp from '../customHoocks/UseLoadSignUp'
 
 export default function SignUp({signUpProps,setSignUpProps}) {
 
@@ -14,23 +15,7 @@ export default function SignUp({signUpProps,setSignUpProps}) {
   const [confirmMdp, setconfirmMdp] = useState("")
   const formSignUp = useRef();
 
-
-   useEffect(() => {
-      if(signUpProps===false){
-        formSignUp.current.style.display="none";
-      }
-      if(signUpProps===true){
-        formSignUp.current.style.display="flex";
-      }
-      
-    }, [signUpProps])
-
-    const onSubmits =()=>{
-      const user = {nom, prenom, pseudonyme, email, password}
-      axios.post("http://localhost:5000/user/register",user)
-      .then((res)=>(console.log(res) ))
-      .catch((err)=>(console.log(err)))
-    }
+  UseLoadSignUp(signUpProps,formSignUp);
 
   return (
     <form
@@ -55,11 +40,9 @@ export default function SignUp({signUpProps,setSignUpProps}) {
       <DivInputSignUp setnom={setpseudonyme} setprenom={setemail} placeholderUn="exemple : Spiderman" placeholderDeux="texte@exemple.com" />
       <DivLabelSignUp labelUn="Mot de passe" LabelDeux="Confirmation" />
       <DivInputSignUp setnom={setpassword} setprenom={setconfirmMdp} placeholderUn="*******" placeholderDeux="*******" />
-      <div className="sup990:text-2xl sup990:h-7 text-error text-lg h-6 w-full text-center">
-        
-      </div>
+      <div className="sup990:text-2xl sup990:h-7 text-error text-lg h-6 w-full text-center"></div>
       <div className="flex items-center justify-center w-full">
-        <button onClick={onSubmits} className="sup990:text-base w-2/5 p-2 rounded-lg border border-solid border-blanc transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-bleu hover:bg-blanc hover:text-vertFoncer text-blanc bg-vertFoncer text-sm ">
+        <button onClick={()=>onSubmitsSignUp(nom,prenom,pseudonyme,email,password)} className="sup990:text-base w-2/5 p-2 rounded-lg border border-solid border-blanc transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-bleu hover:bg-blanc hover:text-vertFoncer text-blanc bg-vertFoncer text-sm ">
           Créer
         </button>
       </div>
