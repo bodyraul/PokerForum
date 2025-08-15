@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import ScroolToSearchPost from '../fonction/ScroolToSearchPost';
+import ScroolToSearchPost from '../../fonction/ScroolToSearchPost';
 
 
 export default function RecherchePostMsg({texte}) {

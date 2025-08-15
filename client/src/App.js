@@ -3,10 +3,10 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Accueil from "./pages/Accueil";
 import MessagePosts from "./pages/MessagePosts";
 import Forum from "./pages/Forum";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/nav/Navbar";
 import { useState } from "react";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
+import SignIn from "./components/nav/SignIn";
+import SignUp from "./components/nav/SignUp";
 import AuthContext from "./Context/AuthContext";
 import UseTokenConfig from "./customHoocks/UseTokenConfig";
 

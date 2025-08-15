@@ -1,9 +1,9 @@
 import React,{useState,useRef,useContext} from 'react'
 import { useParams } from 'react-router-dom';
 import AuthContext from '../Context/AuthContext';
-import AfficherPost from '../components/AfficherPost';
-import AfficheMessage from '../components/AfficheMessage';
-import CreerMessage from '../components/CreerMessage';
+import AfficherPost from '../components/pageForum/affichePost/AfficherPost';
+import AfficheMessage from '../components/pageMsgPost/afficheMessage/AfficheMessage';
+import CreerMessage from '../components/pageMsgPost/creerMessage/CreerMessage';
 import UseMessagePost from '../customHoocks/UseMessagePost';
 import NewMessage from '../fonction/NewMessage';
 import Configuration from '../fonction/Configuration';
