@@ -6,15 +6,17 @@ import { useContext } from 'react';
 import CreerTitrePost from './CreerTitrePost';
 import ChoiseCategoriePost from './ChoiseCategoriePost';
 import ErorMsgPost from './ErorMsgPost';
+import ListePostContext from '../../../Context/ListePostContext';
 
 
-export default function CreerPost({categories,setlistePost,listePost,config} ) {
+export default function CreerPost({categories,config} ) {
     
     const [valueTitrePost, setvalueTitrePost] = useState("");
     const [radioValue, setradioValue] = useState("");
     const errorMsgPost = useRef();
     const [errorMsgCreerPost, seterrorMsgCreerPost] = useState("");
-    const{token} = useContext(AuthContext)
+    const{token} = useContext(AuthContext);
+    const {listePost,setlistePost}=useContext(ListePostContext);
 
   return (
     <div className="sup1400:flex-row sup1400:items-start sup1400:justify-center sup1400:w-1400 w-full mt-24 mx-auto mb-0 flex flex-col items-center justify-center">

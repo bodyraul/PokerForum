@@ -2,14 +2,16 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import InfoPost from '../../../componentsResutilisable/Forum/InfoPost';
 
-export default function ContentPost({listepost}) {
+
+export default function ContentPost({listePost}) {
+
    const navigate = useNavigate();
     const accesPageMessagePost = (idPost) => {
         navigate(`/messagePost/${idPost}`);
     };
   return (
      <>
-        {listepost.map((element) => {
+        {listePost.map((element) => {
         return (
             <div
             key={element._id}

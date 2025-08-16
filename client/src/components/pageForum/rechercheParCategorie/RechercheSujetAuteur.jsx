@@ -1,8 +1,11 @@
 import React, {useRef,useState } from 'react'
 import BtnSujetAuteur from '../../../componentsResutilisable/Forum/BtnSujetAuteur';
 import valideRecherche from '../../../fonction/ValideRecherche';
+import { useContext } from 'react';
+import ListePostContext from '../../../Context/ListePostContext';
 
-export default function RechercheSujetAuteur({setlistePost}) {
+export default function RechercheSujetAuteur() {
+  const {setlistePost}=useContext(ListePostContext);
   const [recherchePost, setrecherchePost] = useState("");
   const [valueAuteurSujet, setvalueAuteurSujet] = useState("sujet");
   const inputSujet = useRef();const inputAuteur = useRef();

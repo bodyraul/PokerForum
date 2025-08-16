@@ -18,6 +18,7 @@ export default function MessagePosts() {
 
   const config = Configuration(token);
   const {post,message,setMessage}= UseMessagePost(config,id);
+  console.log(post + "bonjour")
 
   return (
     <div className="sup990:mt-48 w-[95%]  mt-10">
