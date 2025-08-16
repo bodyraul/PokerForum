@@ -12,8 +12,8 @@ export default function RechercheParCategorie({setlistePost,categories}) {
         <BtnCategorie setlistePost={setlistePost} categories={categories} />
         <RechercheSujetAuteur setlistePost={setlistePost} />
         <div className="sup990:w-auto w-full flex items-center justify-evenly">
-          <BtnPost setlistePost={setlistePost} boolean={true} margin="sup990:ml-0" texte="Posts"/>
-          <BtnPost setlistePost={setlistePost} boolean={false} margin="" texte="Nouveau post"/>
+          <BtnPost setlistePost={setlistePost} nb={0}/>
+          <BtnPost setlistePost={setlistePost} nb={1}/>
         </div>
       </div>
   )

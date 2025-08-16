@@ -13,8 +13,8 @@ export default function RechercheSujetAuteur({setlistePost}) {
         ref={inputsearchSujetAuteur} value={recherchePost} type="text" placeholder="Rechercher Sujet"
         onChange={(e) => {setrecherchePost(e.target.value);}}
         />
-        <BtnSujetAuteur texte="Sujet" bg="bg-vertFoncer" color="text-blanc" valueAuteurSujet={valueAuteurSujet} inputAuteur={inputAuteur} inputSujet={inputSujet} inputsearchSujetAuteur={inputsearchSujetAuteur} setvalueAuteurSujet={setvalueAuteurSujet} />
-        <BtnSujetAuteur texte="Auteur" bg="bg-blanc" color="text-vertFoncer" valueAuteurSujet={valueAuteurSujet} inputAuteur={inputAuteur} inputSujet={inputSujet} inputsearchSujetAuteur={inputsearchSujetAuteur} setvalueAuteurSujet={setvalueAuteurSujet} />
+        <BtnSujetAuteur nb={0} valueAuteurSujet={valueAuteurSujet} inputAuteur={inputAuteur} inputSujet={inputSujet} inputsearchSujetAuteur={inputsearchSujetAuteur} setvalueAuteurSujet={setvalueAuteurSujet} />
+        <BtnSujetAuteur nb={1} valueAuteurSujet={valueAuteurSujet} inputAuteur={inputAuteur} inputSujet={inputSujet} inputsearchSujetAuteur={inputsearchSujetAuteur} setvalueAuteurSujet={setvalueAuteurSujet} />
         <button className="sup670:ml-4 sup670:text-base text-xs bg-blanc text-vertFoncer border-solid border border-vertFoncer ml-0 p-1 hover:cursor-pointer"
         onClick={()=>valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost)}>
         Rechercher
