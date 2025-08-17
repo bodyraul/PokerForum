@@ -15,14 +15,18 @@ module.exports = {
       noir: "#00000000",
     },
      screens: {
+      sup282: "282px",
       sup377: "377px",
       sup460: "460px",
+      sup480: "480px",
       sup670: "670px",
+      sup768: "768px",
       sup990: "990px",
-      sup1600: "1600px",
+      sup1024: "1024px",
+      sup1256: "1256px",
       sup1400: "1400px",
       sup1300: "1300px",
-      sup1256: "1256px",
+      sup1600: "1600px",
     },
     extend: {
 

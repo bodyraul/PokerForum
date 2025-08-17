@@ -20,8 +20,8 @@ function App() {
       <BrowserRouter>
         <AuthContext.Provider value={{token,settoken}}>
           <Navbar signInProps={signIn} signUpProps={signUp} setSignUpProps={setSignUp} setSignInProps={setSignIn}/>
-          <SignUp  signUpProps={signUp} setSignUpProps={setSignUp} />
-          <SignIn signInProps={signIn}   setSignInProps={setSignIn} />
+          <SignUp  signUpProps={signUp} setSignUpProps={setSignUp}/>
+          <SignIn signInProps={signIn}   setSignInProps={setSignIn}/>
           <Routes>
               <Route path="/" element={<Accueil/>} />
               <Route path="/forum" element={<Forum config={config} />} />
