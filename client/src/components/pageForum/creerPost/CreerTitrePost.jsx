@@ -1,13 +1,13 @@
 import React from 'react'
-import TitreNewPostMsg from '../../../componentsResutilisable/Forum/TitreNewPostMsg'
+import TitreNewPostMsg from '../../../componentsResutilisable/globale/TitreNewPostMsg'
 
 export default function CreerTitrePost({valueTitrePost,setvalueTitrePost,seterrorMsgCreerPost}) {
   return (
     <>
-        <TitreNewPostMsg textresponsive="4xl" texte="2xl"> Créer un nouveau Post.</TitreNewPostMsg>
-        <TitreNewPostMsg textresponsive="xl" texte="base"> Donnez votre point de vue sur un cas particulier.</TitreNewPostMsg>
-        <TitreNewPostMsg textresponsive="base" texte="sm"> Titre :</TitreNewPostMsg>
-        <input className="sup670:placeholder:text-base sup460:w-96 outline-vertFoncer border-solid border border-vertFoncer text-vertFoncer py-3 px-2 w-full placeholder:text-sm"
+        <TitreNewPostMsg nb={0} sujet="post" > </TitreNewPostMsg>
+        <TitreNewPostMsg nb={1} sujet="post" > </TitreNewPostMsg>
+        <TitreNewPostMsg nb={2} sujet="post" > </TitreNewPostMsg>
+        <input className="sup480:w-96 sup480:text-[12px] sup480:placeholder:text-[11px] sup768:text-[14px] sup768:placeholder:text-[13px] sup1024:text-[16px] sup1024:placeholder:text-[15px] sup1600:text-[17px] sup1600:placeholder:text-[16px] outline-vertFoncer border-solid border border-vertFoncer text-vertFoncer text-[10px] py-[4px] px-[8px] w-full placeholder:text-[9px]"
         placeholder="Entrez votre titre"type="text" value={valueTitrePost} 
         onChange={(e) => setvalueTitrePost(e.target.value)}  onClick={() => seterrorMsgCreerPost("")}
         />

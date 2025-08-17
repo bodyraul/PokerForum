@@ -28,8 +28,8 @@ export default function ContentPost({listePost}) {
                 <InfoPost>{" "+element.pseudoCreateur}</InfoPost>
                 <InfoPost>{" "+element.dateCreation}</InfoPost>
             </div>
-            <div className=" sup1024:h-[60px] sup1600:h-[75px] h-[48px] flex items-center bg-blanc text-vertFoncer ">
-                <p className="sup480:text-[12px] sup480:leading-[16px] sup480:px-[18px] sup768:px-[22px] sup768:leading-[21px] sup768:text-[14px] sup1024:px-[25px] sup1024:leading-[25px] sup1024:text-[15px]  sup1600:text-[16px] sup1600:px-[27px] sup1600:leading-[28px] w-full px-[12px] text-[10px] leading-[14px] line-clamp-2">
+            <div className=" sup1024:h-[60px] sup1600:h-[80px] h-[48px] flex items-center justify-center bg-blanc text-vertFoncer ">
+                <p className="sup480:text-[12px] sup480:w-[80%] sup480:leading-[16px] sup768:leading-[21px] sup768:text-[14px] sup1024:leading-[27px] sup1024:text-[15px]  sup1600:text-[16px] sup1600:leading-[30px] w-[85%]  text-[10px] leading-[14px] line-clamp-2">
                 {element.titre}
                 </p>
             </div>
