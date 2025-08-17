@@ -1,6 +1,6 @@
 import React from 'react';
 import RechercheParCategorie from '../components/pageForum/rechercheParCategorie/RechercheParCategorie';
-import AfficherAllPost from '../componentsResutilisable/globale/AfficherAllPost';
+import AfficherAllPost from '../components/pageForum/afficherPost/AfficherAllPost';
 import CreerPost from '../components/pageForum/creerPost/CreerPost';
 import UseLoadPost from '../customHoocks/UseLoadPost';
 import UseLoadCategories from '../customHoocks/UseLoadCategories';

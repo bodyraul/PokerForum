@@ -1,5 +1,5 @@
 import React from 'react'
-import ThemePost from "../Forum/ThemePost"
+import ThemePost from "../../../componentsResutilisable/Forum/ThemePost"
 
 export default function CategoriePost() {
   return (
