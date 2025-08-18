@@ -6,7 +6,7 @@ export default function AfficheCategorie({boolCategorieSearch,choiseCategoriesSe
     const {setlistePost}=useContext(ListePostContext);
     if(boolCategorieSearch){
         return(
-            <div className="sup480:bottom-[-131px] sup480:w-[80px] sup768:bottom-[-166px] sup768:w-[90px] sup1024:bottom-[-191px] sup1024:w-[97px] sup1600:bottom-[-202px] sup1600:w-[110px] absolute bg-blanc w-[63px] left-[-1px]  bottom-[-100px] z-10 p-0 border-solid border border-vertClair border-b-0 flex-col items-center justify-center">
+            <div className="sup480:bottom-[-131px] sup480:w-[80px] sup768:bottom-[-166px] sup768:w-[90px] sup1024:bottom-[-191px] sup1024:w-[94px] sup1600:bottom-[-202px] sup1600:w-[110px] absolute bg-blanc w-[63px] left-[-1px]  bottom-[-100px] z-10 p-0 border-solid border border-vertClair border-b-0 flex-col items-center justify-center">
                 {categories.map((element) => {
                     return (
                     <input

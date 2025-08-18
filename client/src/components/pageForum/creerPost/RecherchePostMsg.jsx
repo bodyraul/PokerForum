@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import ScroolToSearchPost from '../../fonction/ScroolToSearchPost';
+import ScroolToSearchPost from '../../../fonction/ScroolToSearchPost';
 
 
 export default function RecherchePostMsg({texte}) {
@@ -9,8 +9,8 @@ export default function RecherchePostMsg({texte}) {
     navigate("/forum")
   }
   return (
-    <div className="sup1600:w-2/5 sup1600:px-[24px] sup1600:py-[0px] py-7 px-0 w-full flex-col items-center ">
-        <div className=" sup1600:w-400 sup1600:ml-0 border-solid border-2 border-gris w-4/5 h-24 ml-8"></div>
+    <div className="sup1024:w-2/5 sup1600:px-[24px] sup1600:py-[0px] py-7 px-0 w-full flex-col items-center ">
+        <div className="  sup1600:ml-0 border-solid border-2 border-gris w-4/5 h-24 ml-8"></div>
         <h2 className=" sup480:text-[16px] sup768:text-[19px] sup1024:text-[22px] sup1600:text-[25px] sup1600:ml-0 ml-[32px] text-[13px] py-[24px] px-0 text-vertClair">
         Autre Post?
         </h2>

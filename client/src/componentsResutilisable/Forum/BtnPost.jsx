@@ -8,7 +8,7 @@ import ListePostContext from '../../Context/ListePostContext';
 export default function BtnPost({nb}) {
   const {setlistePost}= useContext(ListePostContext);
   return (
-    <button onClick={tabBtnPost.boolean[nb]===true?()=>AfficheAllPost(setlistePost):ScrollToNewPost} className={`sup480:text-[13px] sup768:text-[15px] sup768:px-[10px] sup768:py-[6px] sup1024:text-[17px] sup1600:text-[19px] sup1600:py-[8px]  ${tabBtnPost.margin[nb]} py-[5px] px-[8px] border-solid text-vertClair border border-vertClair rounded-lg text-[10px] transition-all duration-300 ease-in-out hover:bg-vertClair hover:text-blanc hover:border-blanc hover:cursor-pointer`}>
+    <button onClick={tabBtnPost.boolean[nb]===true?()=>AfficheAllPost(setlistePost):ScrollToNewPost} className={`sup480:text-[13px] sup768:text-[14px] sup768:px-[10px] sup768:py-[6px] sup1024:text-[13px] sup1600:text-[19px] sup1600:px-[12px] ${tabBtnPost.margin[nb]} py-[5px] px-[8px] border-solid text-vertClair border border-vertClair rounded-lg text-[10px] transition-all duration-300 ease-in-out hover:bg-vertClair hover:text-blanc hover:border-blanc hover:cursor-pointer`}>
         {tabBtnPost.text[nb]}
     </button>
   )
