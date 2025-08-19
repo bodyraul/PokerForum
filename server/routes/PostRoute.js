@@ -28,14 +28,6 @@ router.post("/creerPost",auth,async(req,res)=>{
     }
     const dateCreation = ""+jour+"/"+mois+"/"+annee+"";
     const heureCreation = ""+heure+":"+minute+":"+seconde+"";
-
-    //ajout du post dans categorie pour avoir le nombre de post par categorie
-    // const categorie = await Categorie.findOne({titre:req.body.categorie});
-    // if(!categorie){
-    //     return res.json("la catégorie n'existe pas");
-    // }
-    // categorie.nombrePost +=1;
-    // await categorie.save();
     
     const tab = await User.find({_id : user});
     const post = new Post({

@@ -1,10 +1,20 @@
 import React from 'react'
 import InfoMessage from '../../../componentsResutilisable/message/InfoMessage';
+import { useState } from 'react';
+import Pagination from '../../../componentsResutilisable/globale/Pagination';
+import PageMsgContext from '../../../Context/PageMsgContext';
+import { useContext } from 'react';
 
 export default function AfficheMessage({message,titrecontenu}) {
+  const {currentPage,setcurrentPage}=useContext(PageMsgContext);
+  const [postPerPage, setpostPerPage] = useState(3);
+  const indexOfLastPost =currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost-postPerPage;
+  const currentPosts = message.slice(indexOfFirstPost,indexOfLastPost);
+  const paginate = (pageNumber)=>setcurrentPage(pageNumber);
   return (
     <div className="sup480:w-[350px] sup768:w-[500px] sup1024:w-[650px] sup1600:w-[750px] w-[80%] mx-auto mt-[48px] ">
-        {message.map((element) => {
+        {currentPosts.map((element) => {
           return (
             <div key={element._id} className="sup480:mb-[32px] sup768:mb-[38px] sup768:p-[15px] sup1024:p-[20px] sup1024:mb-[45px] sup1600:mb-[55px] sup1600:p-[25px] mb-[28px] p-[10px] border-solid border-[2px] border-gris w-full ">
               <div className="sup480:pb-[25px] sup768:pb-[38px] sup1024:pb-[50px] pb-[20px] text-vertClair font-bold flex items-center justify-between bg-blanc">
@@ -23,6 +33,7 @@ export default function AfficheMessage({message,titrecontenu}) {
             </div>
           );
         })}
+        <Pagination postsPerPage={postPerPage} totalPosts={message.length} paginate={paginate} currentpage={currentPage} />
       </div>
   )
 }

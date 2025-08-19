@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export default function UseValideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost){
+export default function valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost,setcurrentPage){
 
-    if (valueAuteurSujet === "sujet") {
+    if (valueAuteurSujet === "sujet") {         
         const mot = recherchePost;
         axios
         .get(`http://localhost:5000/post/recherchepostesParmot/${mot}`)
@@ -15,9 +15,13 @@ export default function UseValideRecherche(setlistePost,valueAuteurSujet,recherc
     }
     if (valueAuteurSujet === "auteur") {
         const pseudoCreateur = recherchePost;
+        console.log("auteur")
         axios
         .get(`http://localhost:5000/post/recherchepostesParPseudo/${pseudoCreateur}`)
-        .then((res) => setlistePost(res.data))
+        .then((res) => {
+            setlistePost(res.data);
+            setcurrentPage(1);
+        })
         .catch((err) => {
             console.log(err)
         });

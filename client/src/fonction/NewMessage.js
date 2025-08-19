@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function NewMessage (token,setmessageErreur,valueMsgForm,id,config,paraMessageErreur,setMessage,setvalueMsgForm,message)  {
+export default function NewMessage (token,setmessageErreur,valueMsgForm,id,config,paraMessageErreur,setMessage,setvalueMsgForm,message,setcurrentPage)  {
     paraMessageErreur.current.style.color = "#ef4444";
     if (!token) {
       return setmessageErreur(
@@ -21,8 +21,9 @@ export default function NewMessage (token,setmessageErreur,valueMsgForm,id,confi
       .post(`http://localhost:5000/message/creerMessage/${id}`, newMessage, config)
       .then((res) => {
         paraMessageErreur.current.style.color = "#44ADA8";
-        setMessage([...message,res.data]);
+        setMessage([res.data,...message]);
         setmessageErreur("message Créé.");
+        setcurrentPage(1);
         setvalueMsgForm("");
       })
       .catch((err) => console.log(err));

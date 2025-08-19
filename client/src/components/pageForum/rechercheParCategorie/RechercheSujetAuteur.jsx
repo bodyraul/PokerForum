@@ -3,12 +3,15 @@ import BtnSujetAuteur from '../../../componentsResutilisable/Forum/BtnSujetAuteu
 import valideRecherche from '../../../fonction/ValideRecherche';
 import { useContext } from 'react';
 import ListePostContext from '../../../Context/ListePostContext';
+import PagePostContext from '../../../Context/PagePostContext';
 
 export default function RechercheSujetAuteur() {
+  const {setcurrentPage}=useContext(PagePostContext);
   const {setlistePost}=useContext(ListePostContext);
   const [recherchePost, setrecherchePost] = useState("");
   const [valueAuteurSujet, setvalueAuteurSujet] = useState("sujet");
-  const inputSujet = useRef();const inputAuteur = useRef();
+  const inputSujet = useRef();
+  const inputAuteur = useRef();
   const inputsearchSujetAuteur = useRef();
   return (
     <div className="sup1024:w-[650px]  flex flex-wrap items-center justify-evenly w-full ">
@@ -19,7 +22,9 @@ export default function RechercheSujetAuteur() {
         <BtnSujetAuteur nb={0} valueAuteurSujet={valueAuteurSujet} inputAuteur={inputAuteur} inputSujet={inputSujet} inputsearchSujetAuteur={inputsearchSujetAuteur} setvalueAuteurSujet={setvalueAuteurSujet} />
         <BtnSujetAuteur nb={1} valueAuteurSujet={valueAuteurSujet} inputAuteur={inputAuteur} inputSujet={inputSujet} inputsearchSujetAuteur={inputsearchSujetAuteur} setvalueAuteurSujet={setvalueAuteurSujet} />
         <button className="sup480:mb-0 sup480:text-[13px] sup768:text-[14px] sup1024:text-[15px] sup1600:text-[19px] text-[10px] bg-blanc text-vertFoncer border-solid border border-vertFoncer ml-0 p-[4px]  hover:cursor-pointer "
-        onClick={()=>valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost)}>
+        onClick={()=>{
+          valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost,setcurrentPage);
+        }}>
         Rechercher
         </button>
     </div>

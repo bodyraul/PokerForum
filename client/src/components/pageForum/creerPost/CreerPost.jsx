@@ -7,10 +7,11 @@ import CreerTitrePost from './CreerTitrePost';
 import ChoiseCategoriePost from './ChoiseCategoriePost';
 import ErorMsgPost from './ErorMsgPost';
 import ListePostContext from '../../../Context/ListePostContext';
+import PagePostContext from '../../../Context/PagePostContext';
 
 
 export default function CreerPost({categories,config} ) {
-    
+    const{setcurrentPage}=useContext(PagePostContext);
     const [valueTitrePost, setvalueTitrePost] = useState("");
     const [radioValue, setradioValue] = useState("");
     const errorMsgPost = useRef();
@@ -25,11 +26,12 @@ export default function CreerPost({categories,config} ) {
           <ChoiseCategoriePost categories={categories} setradioValue={setradioValue} />
           <ErorMsgPost errorMsgCreerPost={errorMsgCreerPost} errorMsgPost={errorMsgPost} />
           <button className="sup480:text-[11px] sup480:px-[14px] sup768:text-[13px] sup768:px-[16px] sup1024:text-[15px] sup1024:px-[18px] sup1600:text-[16px] sup1600:px-[20px] text-[10px] py-[8px] px-[12px] text-vertFoncer border-solid border border-vertFoncer bg-blanc rounded-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertFoncer hover:text-blanc"
-              onClick={()=>newPost(errorMsgPost,token,seterrorMsgCreerPost,config,radioValue,valueTitrePost,setlistePost,listePost,setradioValue,setvalueTitrePost )}>
+              onClick={()=>newPost(errorMsgPost,token,seterrorMsgCreerPost,config,radioValue,
+              valueTitrePost,setlistePost,listePost,setradioValue,setvalueTitrePost,setcurrentPage)}>
             Créer
           </button>
         </div>
-        <RecherchePostMsg texte="post"/>
+        <RecherchePostMsg />
       </div>
   )
 }

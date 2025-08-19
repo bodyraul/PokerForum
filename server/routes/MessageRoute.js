@@ -67,11 +67,11 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
   router.get("/messagePost/:id",async(req,res)=>{
     try {
       const idPost = req.params.id;
-      const verifIdPost = await Post.findOne({_id:idPost});
+      const verifIdPost = await Post.findOne({_id:idPost})
       if(!verifIdPost){
         return res.status(401).json("Ce post n'existe pas");
     }
-    const allMessagePost = await MessagePost.find({idPost:idPost});
+    const allMessagePost = await MessagePost.find({idPost:idPost}).sort({createdAt: -1});
       res.json(allMessagePost);
     } catch (error) {
       res.status(500).json(error.message);
