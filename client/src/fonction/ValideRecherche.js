@@ -1,6 +1,11 @@
 import axios from "axios";
 
-export default function valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost,setcurrentPage){
+export default function valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost,setcurrentPage,seterrorMsgCategorie){
+
+    if(recherchePost===""){
+        seterrorMsgCategorie("La recherche est vide.")
+        return;
+    }
 
     if (valueAuteurSujet === "sujet") {         
         const mot = recherchePost;
@@ -8,14 +13,16 @@ export default function valideRecherche(setlistePost,valueAuteurSujet,rechercheP
         .get(`http://localhost:5000/post/recherchepostesParmot/${mot}`)
         .then((res) => {
             setlistePost(res.data);
+            setcurrentPage(1);
         })
         .catch((err) => {
-            console.log(err)
+             if(err.response.status===404){
+                seterrorMsgCategorie(err.response.data)
+            }
         });
     }
     if (valueAuteurSujet === "auteur") {
         const pseudoCreateur = recherchePost;
-        console.log("auteur")
         axios
         .get(`http://localhost:5000/post/recherchepostesParPseudo/${pseudoCreateur}`)
         .then((res) => {
@@ -23,7 +30,9 @@ export default function valideRecherche(setlistePost,valueAuteurSujet,rechercheP
             setcurrentPage(1);
         })
         .catch((err) => {
-            console.log(err)
+            if(err.response.status===404){
+                seterrorMsgCategorie(err.response.data)
+            }
         });
         }
         setrecherchePost("");

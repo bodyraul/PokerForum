@@ -12,8 +12,16 @@ export default function AfficheMessage({message,titrecontenu}) {
   const indexOfFirstPost = indexOfLastPost-postPerPage;
   const currentPosts = message.slice(indexOfFirstPost,indexOfLastPost);
   const paginate = (pageNumber)=>setcurrentPage(pageNumber);
-  return (
-    <div className="sup480:w-[350px] sup768:w-[500px] sup1024:w-[650px] sup1600:w-[750px] w-[80%] mx-auto mt-[48px] ">
+  if(message.length===0){
+    return(
+      <p className='sup480:text-[13px] sup768:text-[16px] sup1024:text-[19px] sup1300:text-[23px] text-[10px] w-full text-center text-vertFoncer'>
+        il n'y a actuellement aucun message pour ce post
+      </p>
+    )
+  }
+  if(message.length>0){
+    return(
+      <div className="sup480:w-[350px] sup768:w-[500px] sup1024:w-[650px] sup1600:w-[750px] w-[80%] mx-auto">
         {currentPosts.map((element) => {
           return (
             <div key={element._id} className="sup480:mb-[32px] sup768:mb-[38px] sup768:p-[15px] sup1024:p-[20px] sup1024:mb-[45px] sup1600:mb-[55px] sup1600:p-[25px] mb-[28px] p-[10px] border-solid border-[2px] border-gris w-full ">
@@ -35,5 +43,6 @@ export default function AfficheMessage({message,titrecontenu}) {
         })}
         <Pagination postsPerPage={postPerPage} totalPosts={message.length} paginate={paginate} currentpage={currentPage} />
       </div>
-  )
+    )
+  }
 }

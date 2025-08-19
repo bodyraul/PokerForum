@@ -23,7 +23,7 @@ export default function GestionErrorMessagePost(token,radioValue,errorMsgPost,se
     }
     if (valueTitrePost.length > 300) {
        seterrorMsgCreerPost(
-        "le titre ne peux pas contenir plus de 150 caractères."
+        "le titre ne peux pas contenir plus de 300 caractères."
       );
        return error;
     }

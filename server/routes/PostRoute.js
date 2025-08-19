@@ -113,7 +113,7 @@ router.get("/",async(req,res)=>{
         const mot = req.params.mot;
         const posts = await Post.find({titre:{$regex:mot}}).sort({createdAt:-1});
         if(posts.length===0){
-            return res.status(404).json("ne correspond à aucun post");
+            return res.status(404).json("Ne correspond à aucun Post");
         }
         res.json(posts);
         

@@ -5,7 +5,7 @@ import DivInputSignUp from '../../componentsResutilisable/SignUp/DivInputSignUp'
 import onSubmitsSignUp from '../../fonction/OnSubmitSignUp'
 import UseLoadSignUp from '../../customHoocks/UseLoadSignUp'
 
-export default function SignUp({signUpProps,setSignUpProps}) {
+export default function SignUp({signUpProps,setSignUpProps,signInProps,setSignInProps}) {
 
   const [nom, setnom] = useState("")
   const [prenom, setprenom] = useState("")
@@ -13,6 +13,7 @@ export default function SignUp({signUpProps,setSignUpProps}) {
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const [confirmMdp, setconfirmMdp] = useState("")
+  const [errorMsg, seterrorMsg] = useState("");
   const formSignUp = useRef();
 
   UseLoadSignUp(signUpProps,formSignUp);
@@ -24,7 +25,7 @@ export default function SignUp({signUpProps,setSignUpProps}) {
       className="sup377:w-[350px] sup480:h-[570] sup480:w-[400px] sup768:w-[470px] sup768:h-[620px]  sup1024:w-[530px] sup1024:h-[680px] sup1600:h-[720px] sup1600:w-[550px] fixed top-2/4 left-2/4 w-full h-[550px]  bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100% z-50 -translate-x-2/4 -translate-y-2/4 rounded-3xl py-[39px] px-[12px] hidden flex-col items-center justify-between "
     >
       <div className="flex items-center justify-center w-full relative text-blanc">
-        <h2 className="sup480:text-[18px] sup480:mb-[3px] sup768:text-[21px] sup768:mb-[5px] sup1024:mb-[7px] sup1024:text-[24px] text-[15px] ">Créer un compte</h2>
+        <h2 className="sup480:text-[18px] sup480:mb-[3px] sup768:text-[21px] sup768:mb-[5px] sup1024:mb-[7px] sup1024:text-[24px] sup1600:text-[30px] text-[15px] ">Créer un compte</h2>
         <button
           onClick={()=>{
             setSignUpProps(!setSignUpProps)
@@ -35,14 +36,14 @@ export default function SignUp({signUpProps,setSignUpProps}) {
         </button>
       </div>
       <DivLabelSignUp labelUn="Nom" LabelDeux="Prenom" />
-      <DivInputSignUp setnom={setnom} setprenom={setprenom} placeholderUn="exemple : Peria" placeholderDeux="exemple : Aurélien" />
+      <DivInputSignUp seterrorMsg={seterrorMsg} setnom={setnom} setprenom={setprenom} placeholderUn="exemple : Peria" placeholderDeux="exemple : Aurélien" />
       <DivLabelSignUp labelUn="Pseudonyme" LabelDeux="Mail" />
-      <DivInputSignUp setnom={setpseudonyme} setprenom={setemail} placeholderUn="exemple : Spiderman" placeholderDeux="texte@exemple.com" />
+      <DivInputSignUp seterrorMsg={seterrorMsg} setnom={setpseudonyme} setprenom={setemail} placeholderUn="exemple : Spiderman" placeholderDeux="texte@exemple.com" />
       <DivLabelSignUp labelUn="Mot de passe" LabelDeux="Confirmation" />
-      <DivInputSignUp setnom={setpassword} setprenom={setconfirmMdp} placeholderUn="*******" placeholderDeux="*******" />
-      <div className=" sup480:text-[13px] sup768:text-[15px] sup1024:text-[17px] sup1600:text-[19px] text-error w-full text-center text-[12px]"> </div>
+      <DivInputSignUp seterrorMsg={seterrorMsg} setnom={setpassword} setprenom={setconfirmMdp} placeholderUn="*******" placeholderDeux="*******" />
+      <div className=" sup480:text-[13px] sup768:text-[15px] sup1024:text-[17px] sup1600:text-[19px] text-error w-full text-center text-[12px]">{errorMsg} </div>
       <div className="flex items-center justify-center w-full">
-        <button onClick={()=>onSubmitsSignUp(nom,prenom,pseudonyme,email,password)} className="sup480:text-[13px] sup768:text-[15px] sup1024:text-[17px] sup1600:text-[19px] text-[11px] w-[35%] p-[7px] rounded-lg border border-solid border-blanc transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-bleu hover:bg-blanc hover:text-vertFoncer text-blanc bg-vertFoncer  ">
+        <button onClick={()=>onSubmitsSignUp(nom,prenom,pseudonyme,email,password,confirmMdp,setSignUpProps,signUpProps,seterrorMsg,setSignInProps,signInProps)} className="sup480:text-[13px] sup768:text-[15px] sup1024:text-[17px] sup1600:text-[19px] text-[11px] w-[35%] p-[7px] rounded-lg border border-solid border-blanc transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-bleu hover:bg-blanc hover:text-vertFoncer text-blanc bg-vertFoncer  ">
           Créer
         </button>
       </div>

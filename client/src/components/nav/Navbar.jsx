@@ -2,38 +2,67 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import clickInscription from '../../fonction/CliqueInscription';
 import clickConnexion from '../../fonction/CliqueConnexion';
+import { useContext } from 'react';
+import AuthContext from '../../Context/AuthContext';
 
-export default function Navbar({signInProps,signUpProps,setSignInProps,setSignUpProps}) {
+export default function Navbar({signInProps,signUpProps,setSignInProps,setSignUpProps,pseudo}) {
+  const {token,settoken}=useContext(AuthContext);
 
-  return (
-    <div className="fixed top-0 z-50 h-24 w-screen  flex items-center justify-center ">
-        <nav className=" h-20  w-[88%] bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100%  flex items-center justify-evenly rounded-bl-3xl rounded-tr-3xl max-w-[1800px]">
+    if(token){
+      return(
+         <div className=" sup480:h-[70px]  sup768:h-[80px] sup1024:h-[95px] sup1600:h-[105px] h-[50px] fixed top-0 z-50 w-screen  flex items-center justify-center ">
+            <nav className="sup480:h-[55px] sup768:h-[65px] sup1024:h-[75px] sup1600:h-[85px] h-[40px]  w-[85%] bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100%  flex items-center justify-evenly rounded-bl-3xl rounded-tr-3xl max-w-[1800px]">
+            <Link
+                className="sup480:text-[14px] sup768:text-[17px] sup1024:text-[23px] sup1600:text-[30px] text-[10px] text-blanc outline-none no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+                to={"/"}
+              >
+                Forum{" "}
+              </Link>
+              <Link
+                className="sup480:text-[14px] sup768:text-[17px] sup1024:text-[23px] sup1600:text-[30px] text-[10px] text-blanc outline-none  no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+                onClick={()=>{
+                  localStorage.removeItem('token');
+                  localStorage.removeItem('pseudo');
+                  settoken("");
+                }}
+              >
+                Deconnexion{" "}
+              </Link>
+              <p
+                className="sup480:text-[14px] sup768:text-[17px] sup1024:text-[23px] sup1600:text-[30px] text-[10px] text-blanc  outline-none  no-underline hover: "
+              >
+                 {pseudo}
+              </p>
+
+            </nav>
+        </div>
+      )
+    }
+    if(!token){
+      return (
+    <div className="sup480:h-[70px]  sup768:h-[80px] sup1024:h-[95px] sup1600:h-[105px] h-[50px] fixed top-0 z-50 w-screen  flex items-center justify-center  ">
+        <nav className=" sup480:h-[55px] sup768:h-[65px] sup1024:h-[75px] sup1600:h-[85px] h-[40px]  w-[85%] bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100%  flex items-center justify-evenly rounded-bl-3xl rounded-tr-3xl max-w-[1800px]">
           <Link
-            className="sup1600:text-3xl text-blanc text-xl outline-none  no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
-            to={"/"}
-          >
-            Accueil
-          </Link>
-          <Link
-            className="sup1600:text-3xl text-blanc text-xl outline-none no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
-            to={"/forum"}
+            className="sup480:text-[14px] sup768:text-[17px] sup1024:text-[23px] sup1600:text-[30px] text-[10px] text-blanc outline-none no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            to={""}
           >
             Forum{" "}
           </Link>
           <Link
-            className="sup1600:text-3xl text-blanc text-xl outline-none  no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            className="sup480:text-[14px] sup768:text-[17px] sup1024:text-[23px] sup1600:text-[30px] text-[10px] text-blanc outline-none no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
             onClick={()=>clickInscription(setSignUpProps,setSignInProps,signUpProps)}
           >
             Inscription{" "}
           </Link>
            <Link
-            className="sup1600:text-3xl text-blanc text-xl outline-none  no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            className="sup480:text-[14px] sup768:text-[17px] sup1024:text-[23px] sup1600:text-[30px] text-[10px] text-blanc outline-none no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
             onClick={()=>clickConnexion(setSignUpProps,setSignInProps,signInProps)}
           >
             Connexion{" "}
           </Link>
-
         </nav>
       </div>
   )
+
+    }
 }

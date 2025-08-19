@@ -5,7 +5,7 @@ import ErrorMsgMsg from './ErrorMsgMsg';
 export default function CreerMessage({valueMsgForm,setvalueMsgForm,paraMessageErreur,setmessageErreur,messageErreur,valideFormMessage}) {
 
   return (
-    <div className=" w-full mx-auto mt-[90px] mb-0 flex flex-col items-center justify-center ">
+    <div className="sup480:mt-[34px] sup768:mt-[30px] sup1024:mt-[34px] sup1600:mt-[42px] w-full mx-auto mt-[30px] mb-0 flex flex-col items-center justify-center ">
         <div className="sup480:w-[400px] sup768:w-[550px] sup1024:w-[700px] sup1600:w-[850px] w-[95%] bg-blanc py-7 px-6 border-solid border-2 border-grisFonce ">
           <CreerTitreMsg setmessageErreur={setmessageErreur} setvalueMsgForm={setvalueMsgForm} valueMsgForm={valueMsgForm} />
           <ErrorMsgMsg messageErreur={messageErreur} paraMessageErreur={paraMessageErreur} />
