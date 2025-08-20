@@ -4,8 +4,8 @@ import MessagePosts from "./pages/MessagePosts";
 import Forum from "./pages/Forum";
 import Navbar from "./components/nav/Navbar";
 import { useState } from "react";
-import SignIn from "./components/nav/SignIn";
-import SignUp from "./components/nav/SignUp";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/signUp/SignUp";
 import AuthContext from "./Context/AuthContext";
 import UseTokenConfig from "./customHoocks/global/UseTokenConfig";
 

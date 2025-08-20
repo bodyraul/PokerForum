@@ -24,10 +24,10 @@ export default function SignIn({signInProps,setSignInProps,setpseudo}) {
         </button>
       </div>
       <div className="sup480:mb-[7px] sup768:mb-[8px] sup1024:mb-[9px] sup1600:mb-[10px] w-full flex flex-col items-start justify-between mb-[6px]">
-        <LabelSignIn label="Email" />
-        <InputSignIn seterrorMsg={seterrorMsg} placeholder="texte@exemple.com" seteur={setemail}/>
-        <LabelSignIn label="Password" />
-        <InputSignIn seterrorMsg={seterrorMsg} placeholder="*******" seteur={setpassword}/>
+        <LabelSignIn nb={0} />
+        <InputSignIn nb={0} seterrorMsg={seterrorMsg}  seteur={setemail}/>
+        <LabelSignIn nb={1} />
+        <InputSignIn nb={1} seterrorMsg={seterrorMsg}  seteur={setpassword}/>
       </div>
       <div className="flex items-center justify-between w-full">
         <button onClick={()=>onSubmitsSignIn(email,password,settoken,setpseudo,setSignInProps,signInProps,seterrorMsg)} className="sup480:text-[12px] sup480:py-[9px] sup768:text-[14px] sup1024:text-[16px] sup1600:text-[18px] text-[10px] sup990:w-full w-full  py-[8px] border border-solid rounded-lg border-blanc text-blanc bg-vertFoncer transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-vertFoncer hover:bg-blanc hover:text-vertFoncer">
