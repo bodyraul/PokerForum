@@ -1,11 +1,11 @@
 import React, {useState } from 'react'
-import cliqueCategories from '../../../fonction/CliqueCategorie';
-import choiseCategoriesSearch from '../../../fonction/ChoiseCategoriesSearch';
+import cliqueCategories from '../../../fonction/forum/CliqueCategorie';
+import choiseCategoriesSearch from '../../../fonction/forum/ChoiseCategoriesSearch';
 import AfficheCategorie from './AfficheCategorie';
 import { useContext } from 'react';
 import PagePostContext from '../../../Context/PagePostContext';
 
-export default function BtnCategorie({categories}) {
+export default function BtnCategorie() {
     const {setcurrentPage}=useContext(PagePostContext);
     const [boolCategorieSearch, setboolCategorieSearch] = useState(false);
   return (
@@ -15,7 +15,7 @@ export default function BtnCategorie({categories}) {
           setcurrentPage(1);
           cliqueCategories(setboolCategorieSearch,boolCategorieSearch);
           }} >
-        <AfficheCategorie boolCategorieSearch={boolCategorieSearch} choiseCategoriesSearch={choiseCategoriesSearch} categories={categories}/>
+        <AfficheCategorie boolCategorieSearch={boolCategorieSearch} choiseCategoriesSearch={choiseCategoriesSearch} />
         <span>Catégories</span>
         <img className="w-5" alt=""></img>
         </div>

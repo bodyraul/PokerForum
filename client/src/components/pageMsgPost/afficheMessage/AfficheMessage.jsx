@@ -1,22 +1,16 @@
 import React from 'react'
-import InfoMessage from '../../../componentsResutilisable/message/InfoMessage';
-import { useState } from 'react';
 import Pagination from '../../../componentsResutilisable/globale/Pagination';
-import PageMsgContext from '../../../Context/PageMsgContext';
-import { useContext } from 'react';
+import ListeMsgVide from './ListeMsgVide';
+import UseNbPageMsg from '../../../customHoocks/message/UseNbPageMsg';
+import TopListMsg from './TopListMsg';
+import BottomListMsg from './BottomListMsg';
+
 
 export default function AfficheMessage({message,titrecontenu}) {
-  const {currentPage,setcurrentPage}=useContext(PageMsgContext);
-  const [postPerPage, setpostPerPage] = useState(3);
-  const indexOfLastPost =currentPage * postPerPage;
-  const indexOfFirstPost = indexOfLastPost-postPerPage;
-  const currentPosts = message.slice(indexOfFirstPost,indexOfLastPost);
-  const paginate = (pageNumber)=>setcurrentPage(pageNumber);
+  const {currentPage,postPerPage,currentPosts,paginate}=UseNbPageMsg(message);
   if(message.length===0){
     return(
-      <p className='sup480:text-[13px] sup768:text-[16px] sup1024:text-[19px] sup1300:text-[23px] text-[10px] w-full text-center text-vertFoncer'>
-        il n'y a actuellement aucun message pour ce post
-      </p>
+      <ListeMsgVide/>
     )
   }
   if(message.length>0){
@@ -25,19 +19,8 @@ export default function AfficheMessage({message,titrecontenu}) {
         {currentPosts.map((element) => {
           return (
             <div key={element._id} className="sup480:mb-[32px] sup768:mb-[38px] sup768:p-[15px] sup1024:p-[20px] sup1024:mb-[45px] sup1600:mb-[55px] sup1600:p-[25px] mb-[28px] p-[10px] border-solid border-[2px] border-gris w-full ">
-              <div className="sup480:pb-[25px] sup768:pb-[38px] sup1024:pb-[50px] pb-[20px] text-vertClair font-bold flex items-center justify-between bg-blanc">
-                <div className=" flex items-center justify-between">
-                  <InfoMessage>
-                    {" " + element.pseudoCreateurMessage}
-                  </InfoMessage>
-                </div>
-                <InfoMessage>
-                    {element.dateCreation}
-                </InfoMessage>
-              </div>
-              <p className="sup480:text-[12px] sup480:min-h-[25px] sup480:max-h-[60px] sup480:leading-[18px] sup768:leading-[21px] sup768:max-h-[70px] sup768:min-h-[30px] sup768:pt-[4px] sup768:text-[14px] sup1024:leading-[27px] sup1024:max-h-[87px] sup1024:min-h-[33px] sup1024:text-[15px]  sup1600:text-[16px] sup1600:leading-[30px] sup1600:max-h-[97px] sup1600:min-h-[41px] pt-[2px] px-[10px] VisibleContenu block relative overflow-hidden overflow-y-scroll w-full  text-vertFoncer text-[10px] min-h-[20px] max-h-[50px]  bg-grisFonce  " ref={titrecontenu}>
-                {element.contenu}
-              </p>
+                <TopListMsg element={element} />
+                <BottomListMsg element={element} titrecontenu={titrecontenu} />
             </div>
           );
         })}

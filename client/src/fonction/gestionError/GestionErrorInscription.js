@@ -1,6 +1,6 @@
-import regexNom from "./RegexNom";
-import regexMail from "./RegexMail";
-import regexPassword from "./RegexPassword";
+import regexNom from "../regex/RegexNom";
+import regexMail from "../regex/RegexMail";
+import regexPassword from "../regex/RegexPassword";
 export default function gestionErrorInscription(nom,prenom,pseudonyme,email,password,confirmMdp,seterrorMsg){
     
     let error=true;

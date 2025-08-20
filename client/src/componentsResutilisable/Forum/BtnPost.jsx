@@ -1,6 +1,6 @@
 import React from 'react'
-import ScrollToNewPost from '../../fonction/ScrollToNewPost'
-import AfficheAllPost from '../../fonction/AfficheAllPost'
+import ScrollToNewPost from '../../fonction/scrollTo/ScrollToNewPost';
+import AfficheAllPost from '../../fonction/forum/AfficheAllPost';
 import tabBtnPost from '../../tools/tab/TabBtnPost'
 import { useContext } from 'react';
 import ListePostContext from '../../Context/ListePostContext';

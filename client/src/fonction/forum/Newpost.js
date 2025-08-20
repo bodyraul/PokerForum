@@ -1,5 +1,5 @@
 import resetAllRadio from "./ResetAllRadio";
-import GestionErrorMessagePost from "./GestionErrorMessagePost";
+import GestionErrorMessagePost from "../gestionError/GestionErrorMessagePost";
 import axios from "axios";
 
 export default async function newPost (errorMsgPost,token,seterrorMsgCreerPost,config,radioValue,valueTitrePost,setlistePost,listePost,setradioValue,setvalueTitrePost,setcurrentPage)  {

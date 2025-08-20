@@ -1,19 +1,12 @@
 import React from 'react'
 import ContentPost from './ContentPost';
 import CategoriePost from './CategoriePost';
-import { useState } from 'react';
 import Pagination from '../../../componentsResutilisable/globale/Pagination';
-import { useContext } from 'react';
-import PagePostContext from '../../../Context/PagePostContext';
+import UseNbPagePost from '../../../customHoocks/forum/UseNbPagePost';
 
-export default function AfficherAllPost({listePost}) {
-
-  const {currentPage,setcurrentPage}=useContext(PagePostContext);
-  const [postPerPage, setpostPerPage] = useState(3);
-  const indexOfLastPost =currentPage * postPerPage;
-  const indexOfFirstPost = indexOfLastPost-postPerPage;
-  const currentPosts = listePost.slice(indexOfFirstPost,indexOfLastPost);
-  const paginate = (pageNumber)=>setcurrentPage(pageNumber);
+export default function AfficherAllPost() {
+  
+  const {listePost,currentPage,postPerPage,currentPosts,paginate}=UseNbPagePost();
 
   return (
     <div className="sup480:mb-[50px] sup480:w-[450px] sup768:mb-[70px] sup768:w-[700px] sup1024:w-[850px] sup1024:mb-[80px] sup1600:w-[1000px] sup1600:mb-[110px] w-full mt-0 mb-[30px] mx-auto max-w-[1800px] ">
@@ -21,7 +14,7 @@ export default function AfficherAllPost({listePost}) {
           return (
               <div key={element._id}>
                   <CategoriePost/>
-                  <ContentPost element={element} />
+                  <ContentPost element={element}/>
               </div>
           );
         })}

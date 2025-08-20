@@ -1,5 +1,5 @@
 import axios from "axios";
-import gestionErrorConnexion from "./GestionErrorConnexion";
+import gestionErrorConnexion from "../gestionError/GestionErrorConnexion";
 
 export default function onSubmitsSignIn (email,password,settoken,setpseudo,setSignInProps,signInProps,seterrorMsg){
 
@@ -8,7 +8,7 @@ export default function onSubmitsSignIn (email,password,settoken,setpseudo,setSi
       const user = {email,password}
       axios.post("http://localhost:5000/user/login",user)
       .then((res)=>{
-        localStorage.setItem("token",res.data);
+        localStorage.setItem("token",res.data.token);
         settoken(res.data.token);
         localStorage.setItem('pseudo',res.data.pseudonyme);
         setpseudo(res.data.pseudonyme);

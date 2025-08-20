@@ -1,6 +1,6 @@
 import React from 'react'
-import cliqueSujet from '../../fonction/CliqueSujet'
-import cliqueAuteur from '../../fonction/CliqueAuteur'
+import cliqueSujet from '../../fonction/forum/CliqueSujet';
+import cliqueAuteur from '../../fonction/forum/CliqueAuteur';
 import tabBtnSujetAuteur from '../../tools/tab/TabBtnSujetAuteur';
 
 export default function BtnSujetAuteur({nb,valueAuteurSujet,inputAuteur,inputSujet,inputsearchSujetAuteur,setvalueAuteurSujet}) {

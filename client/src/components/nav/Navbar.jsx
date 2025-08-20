@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import clickInscription from '../../fonction/CliqueInscription';
-import clickConnexion from '../../fonction/CliqueConnexion';
+import clickConnexion from '../../fonction/nav/CliqueConnexion';
+import clickInscription from '../../fonction/nav/CliqueInscription';
 import { useContext } from 'react';
 import AuthContext from '../../Context/AuthContext';
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import gestionErrorMessageMsg from "./GestionErrorMessageMsg";
+import gestionErrorMessageMsg from "../gestionError/GestionErrorMessageMsg";
 
 export default function NewMessage (token,setmessageErreur,valueMsgForm,id,config,paraMessageErreur,setMessage,setvalueMsgForm,message,setcurrentPage)  {
     

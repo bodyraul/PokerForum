@@ -51,7 +51,7 @@ router.post("/login", async (req, res) => {
       return res.status(404).json("Adresse mail ou mot de passe incorrect");
     }
     const token = jwt.sign(
-      { id: user._id, role: user.role, bannis: user.bannis },
+      { id: user._id },
       process.env.PRIVATE_KEY
     );
      res.status(200).json({token:token,pseudonyme:user.pseudonyme});

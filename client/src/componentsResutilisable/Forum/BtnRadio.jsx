@@ -1,7 +1,10 @@
 import React from 'react'
-import Majradio from "../../fonction/MajRadio"
+import gestionRadio from '../../fonction/forum/MajRadio';
+import { useContext } from 'react';
+import CategorieContext from '../../Context/CategorieContext';
 
-export default function BtnRadio({categories,setradioValue}) {
+export default function BtnRadio({setradioValue}) {
+  const {categories}=useContext(CategorieContext);
   return (
     <div className=" sup480:w-[384px] pb-0 pl-0 flex-col items-center justify-between w-full">
         {categories.map((element) => {
@@ -11,7 +14,7 @@ export default function BtnRadio({categories,setradioValue}) {
                 key={element._id}
             >
                 <label htmlFor="">- {element.titre}</label>
-                <input onClick={(e) => Majradio(e,setradioValue)} className="inputRadio sup480:w-[11px] sup768:w-[12px] sup1024:w-[13px] w-[9px] hover:cursor-pointer" type="radio" value={element.titre}/>
+                <input onClick={(e) => gestionRadio(e,setradioValue)} className="inputRadio sup480:w-[11px] sup768:w-[12px] sup1024:w-[13px] w-[9px] hover:cursor-pointer" type="radio" value={element.titre}/>
             </p>
             );
         })}

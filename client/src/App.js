@@ -7,7 +7,7 @@ import { useState } from "react";
 import SignIn from "./components/nav/SignIn";
 import SignUp from "./components/nav/SignUp";
 import AuthContext from "./Context/AuthContext";
-import UseTokenConfig from "./customHoocks/UseTokenConfig";
+import UseTokenConfig from "./customHoocks/global/UseTokenConfig";
 
 function App() {
   const [signIn, setSignIn] = useState(false);

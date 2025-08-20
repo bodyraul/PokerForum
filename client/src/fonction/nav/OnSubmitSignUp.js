@@ -1,5 +1,5 @@
 import axios from "axios";
-import gestionErrorInscription from "./GestionErrorInscription";
+import gestionErrorInscription from "../gestionError/GestionErrorInscription";
 
 export default function onSubmitsSignUp (nom,prenom,pseudonyme,email,password,confirmMdp,setSignUpProps,signUpProps,seterrorMsg,setSignInProps,signInProps){
 

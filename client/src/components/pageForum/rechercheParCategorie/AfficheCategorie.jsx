@@ -1,8 +1,10 @@
 import React from 'react'
 import { useContext } from 'react';
 import ListePostContext from '../../../Context/ListePostContext';
+import CategorieContext from '../../../Context/CategorieContext';
 
-export default function AfficheCategorie({boolCategorieSearch,choiseCategoriesSearch,categories}) {
+export default function AfficheCategorie({boolCategorieSearch,choiseCategoriesSearch}) {
+    const {categories}=useContext(CategorieContext);
     const {setlistePost}=useContext(ListePostContext);
     if(boolCategorieSearch){
         return(
@@ -11,7 +13,8 @@ export default function AfficheCategorie({boolCategorieSearch,choiseCategoriesSe
                     return (
                     <input
                         className="sup480:text-[12px] sup480:h-[26px] sup768:text-[13px] sup768:h-[33px] sup1024:text-[14px] sup1024:h-[38px] sup1600:text-[15px] sup1600:h-[40px] text-[9px] text-center text-blanc w-full h-[20px] border-solid border border-l-0 border-r-0 border-t-0 border-b-blanc bg-vertClair outline-none transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-blanc hover:text-vertClair hover:border-vertClair"
-                        key={element._id} onClick={(e)=> choiseCategoriesSearch(e,setlistePost)} type="input" defaultValue={element.titre}
+                        key={element._id} type="input" defaultValue={element.titre}
+                        onClick={(e)=> choiseCategoriesSearch(e,setlistePost)}
                     />
                     );
                 })}

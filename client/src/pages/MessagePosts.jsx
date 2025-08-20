@@ -1,23 +1,18 @@
-import React,{useState,useRef,useContext} from 'react'
-import { useParams } from 'react-router-dom';
-import AuthContext from '../Context/AuthContext';
+import React from 'react'
 import AfficheMessage from '../components/pageMsgPost/afficheMessage/AfficheMessage';
 import CreerMessage from '../components/pageMsgPost/creerMessage/CreerMessage';
-import UseMessagePost from '../customHoocks/UseMessagePost';
-import NewMessage from '../fonction/NewMessage';
-import Configuration from '../fonction/Configuration';
+import UseMessagePost from '../customHoocks/message/UseMessagePost';
+import NewMessage from '../fonction/message/NewMessage';
 import AfficheLePost from '../components/pageMsgPost/afficherPost/afficheLePost';
 import PageMsgContext from '../Context/PageMsgContext';
+import UseVariableMsgPost from '../customHoocks/message/UseVariableMsgPost';
+
 
 export default function MessagePosts() {
-  const [currentPage, setcurrentPage] = useState(1);
-  const titrecontenu = useRef();
-  const { id } = useParams();
-  const [valueMsgForm, setvalueMsgForm] = useState("");
-  const { token } = useContext(AuthContext);
-  const [messageErreur, setmessageErreur] = useState("");
-  const paraMessageErreur = useRef();
-  const config = Configuration(token);
+
+  const {currentPage,setcurrentPage,token,titrecontenu,id,valueMsgForm,setvalueMsgForm,messageErreur
+    ,setmessageErreur,paraMessageErreur,config} = UseVariableMsgPost();
+
   const {post,message,setMessage}= UseMessagePost(config,id);
 
   return (

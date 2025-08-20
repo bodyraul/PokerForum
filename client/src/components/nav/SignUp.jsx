@@ -2,8 +2,8 @@ import React, { useRef,useState } from 'react'
 import croix from "../../assets/img/croix.png"
 import DivLabelSignUp from '../../componentsResutilisable/SignUp/DivLabelSignUp'
 import DivInputSignUp from '../../componentsResutilisable/SignUp/DivInputSignUp'
-import onSubmitsSignUp from '../../fonction/OnSubmitSignUp'
-import UseLoadSignUp from '../../customHoocks/UseLoadSignUp'
+import onSubmitsSignUp from '../../fonction/nav/OnSubmitSignUp'
+import UseLoadSignUp from '../../customHoocks/nav/UseLoadSignUp'
 
 export default function SignUp({signUpProps,setSignUpProps,signInProps,setSignInProps}) {
 

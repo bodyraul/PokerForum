@@ -3,8 +3,8 @@ import croix from "../../assets/img/croix.png"
 import AuthContext from '../../Context/AuthContext'
 import LabelSignIn from '../../componentsResutilisable/SignIn/LabelSignIn'
 import InputSignIn from '../../componentsResutilisable/SignIn/InputSignIn'
-import onSubmitsSignIn from '../../fonction/OnSubmitSignIn'
-import UseLoadSignIn from '../../customHoocks/UseLoadSignIn'
+import onSubmitsSignIn from '../../fonction/nav/OnSubmitSignIn'
+import UseLoadSignIn from '../../customHoocks/nav/UseLoadSignIn'
 
 export default function SignIn({signInProps,setSignInProps,setpseudo}) {
   const formSignIn = useRef();
