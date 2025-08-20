@@ -9,3 +9,4 @@ export default function ErorMsgPost({errorMsgCreerPost,errorMsgPost}) {
     </p>
   )
 }
+

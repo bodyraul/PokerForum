@@ -13,7 +13,7 @@ export default function CreerPost({config}) {
 
   return (
     <div className="sup1024:flex-row sup1024:items-start sup1024:justify-center sup1024:w-[95%]  w-full  mx-auto  flex flex-col items-center justify-center max-w-[1800px] ">
-        <div className="creationPost sup480:py-[20px] sup768:py-[25px] sup1024:py-[30px] sup1024:w-[95%] sup1600:py-[35px]    py-[15px] px-[24px] w-full border-solid border-[2px] border-gris">
+        <div className="creationPost sup480:py-[20px] sup768:py-[25px] sup1024:py-[30px] sup1024:w-[95%] sup1600:py-[35px]    py-[15px] px-[24px] w-full border-solid border-[2px] border-gris ">
           <CreerTitrePost valueTitrePost={valueTitrePost} seterrorMsgCreerPost={seterrorMsgCreerPost} setvalueTitrePost={setvalueTitrePost} />
           <ChoiseCategoriePost setradioValue={setradioValue} />
           <ErorMsgPost errorMsgCreerPost={errorMsgCreerPost} errorMsgPost={errorMsgPost} />

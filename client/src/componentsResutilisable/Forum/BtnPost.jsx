@@ -15,7 +15,7 @@ export default function BtnPost({nb}) {
       AfficheAllPost(setlistePost);
       setcurrentPage(1)}:ScrollToNewPost
     } 
-      className={`sup480:text-[13px] sup768:text-[14px] sup768:px-[10px] sup768:py-[6px] sup1024:text-[13px] sup1600:text-[19px] sup1600:px-[12px] ${tabBtnPost.margin[nb]} py-[5px] px-[8px] border-solid text-vertClair border border-vertClair rounded-lg text-[10px] transition-all duration-300 ease-in-out hover:bg-vertClair hover:text-blanc hover:border-blanc hover:cursor-pointer`}>
+      className={`sup480:text-[13px] sup768:text-[14px] sup768:px-[10px] sup768:py-[6px] sup1024:text-[13px] sup1600:text-[19px] sup1600:px-[12px] ${tabBtnPost.margin[nb]} py-[5px] px-[8px] border-solid text-vertFoncer border border-vertFoncer rounded-lg text-[10px] transition-all duration-300 ease-in-out hover:bg-vertFoncer hover:text-blanc hover:border-blanc hover:cursor-pointer`}>
         {tabBtnPost.text[nb]}
     </button>
   )

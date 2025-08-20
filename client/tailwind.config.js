@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     colors: {
       vertClair: "#44ADA8",
-      vertFoncer: "#547981",
+      vertFoncer: "#405B63",
       blanc: "#ffffff",
       gris: "#e0e3e5",
       error: "rgb(185 28 28)",
