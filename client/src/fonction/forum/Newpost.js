@@ -11,7 +11,7 @@ export default async function newPost (errorMsgPost,token,seterrorMsgCreerPost,c
     newPost.titre = valueTitrePost;
 
     await axios
-      .post("http://localhost:5000/post/creerPost", newPost, config)
+      .post("/post/creerPost", newPost, config)
       .then((res) => {
         setlistePost([res.data, ...listePost]);
         errorMsgPost.current.style.color = "#44ADA8";

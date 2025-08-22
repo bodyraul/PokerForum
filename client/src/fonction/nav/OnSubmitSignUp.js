@@ -7,7 +7,7 @@ export default function onSubmitsSignUp (nom,prenom,pseudonyme,email,password,co
 
     if(error=== false){
       const user = {nom, prenom, pseudonyme, email, password}
-      axios.post("http://localhost:5000/user/register",user)
+      axios.post("/user/register",user)
       .then((res)=>{
         setSignUpProps(!signUpProps);
         setSignInProps(!signInProps);

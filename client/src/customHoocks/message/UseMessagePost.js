@@ -8,7 +8,7 @@ export default function UseMessagePost(config,id){
     useEffect(() => {
     async function message() {
       await axios
-        .get(`http://localhost:5000/message/messagePost/${id}`)
+        .get(`/message/messagePost/${id}`)
         .then((res) => {
           setMessage(res.data);
         })
@@ -17,7 +17,7 @@ export default function UseMessagePost(config,id){
 
     async function lePoste() {
       await axios
-      .get(`http://localhost:5000/post/lePoste/${id}`, config)
+      .get(`/post/lePoste/${id}`, config)
       .then((res)=>setpost(res.data))   
         .catch((err) => console.log(err));
     }

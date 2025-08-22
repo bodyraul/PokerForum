@@ -9,7 +9,7 @@ export default function NewMessage (token,setmessageErreur,valueMsgForm,id,confi
         const newMessage = {};
         newMessage.contenu = valueMsgForm;
         axios
-          .post(`http://localhost:5000/message/creerMessage/${id}`, newMessage, config)
+          .post(`/message/creerMessage/${id}`, newMessage, config)
           .then((res) => {
             paraMessageErreur.current.style.color = "#44ADA8";
             setMessage([res.data,...message]);

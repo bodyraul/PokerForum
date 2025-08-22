@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter,HashRouter, Routes, Route} from "react-router-dom";
 import MessagePosts from "./pages/MessagePosts";
 import Forum from "./pages/Forum";
 import Navbar from "./components/nav/Navbar";
@@ -14,7 +14,8 @@ function App() {
 
   return (
     <div >
-      <BrowserRouter>
+   
+        <BrowserRouter>
         <AuthContext.Provider value={{token,settoken,pseudo,setpseudo}}>
           <SigneUpInContext.Provider value={{signIn,setSignIn,signUp,setSignUp}} >
             <Navbar />
@@ -27,6 +28,7 @@ function App() {
           </Routes>
         </AuthContext.Provider>
       </BrowserRouter>
+   
     </div>
   );
 }

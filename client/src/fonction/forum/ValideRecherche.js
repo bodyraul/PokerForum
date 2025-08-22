@@ -10,7 +10,7 @@ export default function valideRecherche(setlistePost,valueAuteurSujet,rechercheP
     if (valueAuteurSujet === "sujet") {         
         const mot = recherchePost;
         axios
-        .get(`http://localhost:5000/post/recherchepostesParmot/${mot}`)
+        .get(`/post/recherchepostesParmot/${mot}`)
         .then((res) => {
             setlistePost(res.data);
             setcurrentPage(1);
@@ -24,7 +24,7 @@ export default function valideRecherche(setlistePost,valueAuteurSujet,rechercheP
     if (valueAuteurSujet === "auteur") {
         const pseudoCreateur = recherchePost;
         axios
-        .get(`http://localhost:5000/post/recherchepostesParPseudo/${pseudoCreateur}`)
+        .get(`/post/recherchepostesParPseudo/${pseudoCreateur}`)
         .then((res) => {
             setlistePost(res.data);
             setcurrentPage(1);
