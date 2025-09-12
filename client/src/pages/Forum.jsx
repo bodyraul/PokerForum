@@ -11,6 +11,8 @@ import ErroMsgCategorie from '../components/pageForum/errorMsg/ErroMsgCategorie'
 import CategorieContext from '../Context/CategorieContext';
 import SpinnerContext from '../Context/SpinnerContext';
 import Spinner from '../componentsResutilisable/globale/Spinner';
+import TitreForum from '../components/pageForum/titre/TitreForum';
+import TitrePost from '../components/pageForum/titre/TitrePost';
 
 export default function Forum({config}) {
   
@@ -29,9 +31,10 @@ export default function Forum({config}) {
             <Spinner/>
           :
             <div className="sup480:pt-[110px] sup768:pt-[140px] sup1024:pt-[175px] sup1600:pt-[200px] w-[95%] pt-[80px] pb-[20px] my-0 mx-auto ">
-              <p className="titreUn sup480:text-[25px] sup768:text-[31px] sup1024:text-[42px] sup1600:text-[48px] text-[20px] text-center text-vertFoncer ">Forum</p>
+              <TitreForum/>
               <RechercheParCategorie/>
               <ErroMsgCategorie/>
+              <TitrePost listePost={listePost} />
               <AfficherAllPost/>
               <CreerPost config={config}/>
             </div>
