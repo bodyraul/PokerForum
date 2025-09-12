@@ -5,7 +5,7 @@ import UseVariableSearchSujetAuteur from '../../../customHoocks/forum/UseVariabl
 export default function RechercheSujetAuteur() {
   
   const {seterrorMsgCategorie,setcurrentPage,setlistePost,recherchePost,setrecherchePost,valueAuteurSujet,
-        setvalueAuteurSujet,inputSujet,inputAuteur,inputsearchSujetAuteur} = UseVariableSearchSujetAuteur();
+        setvalueAuteurSujet,inputSujet,inputAuteur,inputsearchSujetAuteur,setSpin} = UseVariableSearchSujetAuteur();
   
   return (
     <div className="sup1024:w-[650px]  flex flex-wrap items-center justify-evenly w-full ">
@@ -18,7 +18,7 @@ export default function RechercheSujetAuteur() {
         <BtnSujetAuteur nb={1} valueAuteurSujet={valueAuteurSujet} inputAuteur={inputAuteur} inputSujet={inputSujet} inputsearchSujetAuteur={inputsearchSujetAuteur} setvalueAuteurSujet={setvalueAuteurSujet} />
         <button className="sup480:mb-0 sup480:text-[13px] sup768:text-[14px] sup1024:text-[15px] sup1600:text-[19px] text-[10px] bg-blanc text-vertFoncer border-solid border border-vertFoncer ml-0 p-[4px]  hover:cursor-pointer "
         onClick={()=>{
-          valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost,setcurrentPage,seterrorMsgCategorie);
+          valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost,setcurrentPage,seterrorMsgCategorie,setSpin);
         }}>
         Rechercher
         </button>

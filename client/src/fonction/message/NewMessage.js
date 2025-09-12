@@ -12,9 +12,9 @@ export default function NewMessage (token,setmessageErreur,valueMsgForm,id,confi
           .post(`/message/creerMessage/${id}`, newMessage, config)
           .then((res) => {
             paraMessageErreur.current.style.color = "#44ADA8";
+            setcurrentPage(1);
             setMessage([res.data,...message]);
             setmessageErreur("message Créé.");
-            setcurrentPage(1);
             setvalueMsgForm("");
           })
           .catch((err) => console.log(err));

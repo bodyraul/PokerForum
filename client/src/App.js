@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter,HashRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import MessagePosts from "./pages/MessagePosts";
 import Forum from "./pages/Forum";
 import Navbar from "./components/nav/Navbar";
@@ -8,14 +8,16 @@ import SignUp from "./components/signUp/SignUp";
 import AuthContext from "./Context/AuthContext";
 import UseTokenConfig from "./customHoocks/global/UseTokenConfig";
 import SigneUpInContext from "./Context/SIgneUpInContext";
+import SpinnerContext from "./Context/SpinnerContext";
 
 function App() {
-  const {token,settoken,config,pseudo,setpseudo,signIn,setSignIn,signUp,setSignUp}=UseTokenConfig();
+  const {token,settoken,config,pseudo,setpseudo,signIn,setSignIn,signUp,setSignUp,spin,setSpin}=UseTokenConfig();
 
   return (
     <div >
    
         <BrowserRouter>
+        <SpinnerContext.Provider value={{spin,setSpin}}>
         <AuthContext.Provider value={{token,settoken,pseudo,setpseudo}}>
           <SigneUpInContext.Provider value={{signIn,setSignIn,signUp,setSignUp}} >
             <Navbar />
@@ -27,6 +29,7 @@ function App() {
               <Route path="/messagePost/:id" element={<MessagePosts/>} />
           </Routes>
         </AuthContext.Provider>
+        </SpinnerContext.Provider>
       </BrowserRouter>
    
     </div>

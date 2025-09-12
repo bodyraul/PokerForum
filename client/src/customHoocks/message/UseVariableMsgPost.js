@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import Configuration from "../../fonction/globale/Configuration";
 import AuthContext from "../../Context/AuthContext";
+import SpinnerContext from "../../Context/SpinnerContext";
 
 export default function UseVariableMsgPost(){
     const [currentPage, setcurrentPage] = useState(1);
@@ -14,6 +15,7 @@ export default function UseVariableMsgPost(){
     const [messageErreur, setmessageErreur] = useState("");
     const paraMessageErreur = useRef();
     const config = Configuration(token);
+    const {spin}=useContext(SpinnerContext);
     return{currentPage,setcurrentPage,token,titrecontenu,id,valueMsgForm,
-    setvalueMsgForm,messageErreur,setmessageErreur,paraMessageErreur,config}
+    setvalueMsgForm,messageErreur,setmessageErreur,paraMessageErreur,config,spin}
 }

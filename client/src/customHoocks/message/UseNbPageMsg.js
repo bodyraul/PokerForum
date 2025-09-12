@@ -9,6 +9,6 @@ export default function UseNbPageMsg(message){
     const indexOfLastPost =currentPage * postPerPage;
     const indexOfFirstPost = indexOfLastPost-postPerPage;
     const currentPosts = message.slice(indexOfFirstPost,indexOfLastPost);
-    const paginate = (pageNumber)=>setcurrentPage(pageNumber);
-    return {currentPage,postPerPage,currentPosts,paginate}
+    const nbPage = Math.ceil(message.length/postPerPage)
+    return {currentPosts,currentPage,setcurrentPage,nbPage}
 }

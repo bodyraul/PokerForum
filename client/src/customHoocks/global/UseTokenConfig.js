@@ -6,10 +6,11 @@ export default function UseTokenConfig(){
     const [token, settoken] = useState(initToken);
     const [signIn, setSignIn] = useState(false);
     const [signUp, setSignUp] = useState(false);
+    const [spin, setSpin] = useState(true);
     const config = {
         headers: {
         Authorization: `Bearer ${token}`,
         },
     };
-    return {token,settoken,config,pseudo,setpseudo,signIn,setSignIn,signUp,setSignUp}
+    return {token,settoken,config,pseudo,setpseudo,signIn,setSignIn,signUp,setSignUp,spin,setSpin}
 }

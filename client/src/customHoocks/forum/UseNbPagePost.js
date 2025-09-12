@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import ListePostContext from "../../Context/ListePostContext";
 import PagePostContext from "../../Context/PagePostContext";
@@ -10,7 +11,7 @@ export default function UseNbPagePost(){
     const indexOfLastPost =currentPage * postPerPage;
     const indexOfFirstPost = indexOfLastPost-postPerPage;
     const currentPosts = listePost.slice(indexOfFirstPost,indexOfLastPost);
-    const paginate = (pageNumber)=>setcurrentPage(pageNumber);
+    const nbPage = Math.ceil(listePost.length/postPerPage);
 
-    return {listePost,currentPage,postPerPage,currentPosts,paginate};
+    return {currentPosts,currentPage,setcurrentPage,nbPage};
 }

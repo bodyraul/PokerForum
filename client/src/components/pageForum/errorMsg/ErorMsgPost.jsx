@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ErorMsgPost({errorMsgCreerPost,errorMsgPost}) {
   return (
-    <p ref={errorMsgPost} className="sup480:text-[11px] sup480:pb-[18px] sup480:pt-[7px] sup768:pb-[22px] sup768:pt-[5px] sup768:text-[13px] sup1024:pb-[25px] sup1024:pt-[8px] sup1024:text-[15px] sup1600:text-[16px] sup1600:pb-[30px] text-[10px] pt-[6px] pb-[15px] text-error ">
+    <p ref={errorMsgPost} className="sup480:text-[11px] sup480:h-[35px] sup768:text-[13px] sup768:h-[40px] sup1024:text-[15px] sup1024:h-[45px] sup1024:pb-[5px] sup1600:text-[16px] sup1600:h-[50px] text-[10px] h-[30px]  text-error  ">
         {" "}
         
         {errorMsgCreerPost}{" "}

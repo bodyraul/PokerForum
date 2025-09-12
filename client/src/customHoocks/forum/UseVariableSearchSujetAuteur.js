@@ -4,6 +4,7 @@ import { useRef } from "react";
 import CategorieContext from "../../Context/CategorieContext";
 import PagePostContext from "../../Context/PagePostContext";
 import ListePostContext from "../../Context/ListePostContext";
+import SpinnerContext from "../../Context/SpinnerContext";
 
 export default function UseVariableSearchSujetAuteur(){
     const {seterrorMsgCategorie}=useContext(CategorieContext);
@@ -14,7 +15,8 @@ export default function UseVariableSearchSujetAuteur(){
     const inputSujet = useRef();
     const inputAuteur = useRef();
     const inputsearchSujetAuteur = useRef();
+    const {setSpin}=useContext(SpinnerContext);
 
     return {seterrorMsgCategorie,setcurrentPage,setlistePost,recherchePost,setrecherchePost,valueAuteurSujet,
-        setvalueAuteurSujet,inputSujet,inputAuteur,inputsearchSujetAuteur}
+        setvalueAuteurSujet,inputSujet,inputAuteur,inputsearchSujetAuteur,setSpin}
 }
