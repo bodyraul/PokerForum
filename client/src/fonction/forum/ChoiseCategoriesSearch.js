@@ -1,6 +1,6 @@
 import axios from "axios";
 
-   export default  function choiseCategoriesSearch  (e,setlistePost,setcurrentPage,setSpin) {
+   export default  function choiseCategoriesSearch  (e,setlistePost,setcurrentPage,setSpin,setcroissantCategorie,setcroissantReponse,setcroissantDate,setcroissantAuteur) {
     setSpin(true);
     async function postParCategorie() {
         await axios
@@ -9,10 +9,18 @@ import axios from "axios";
           setlistePost(res.data)
           setcurrentPage(1);
           setSpin(false);
+          setcroissantAuteur(false);
+          setcroissantCategorie(false);
+          setcroissantReponse(false);
+          setcroissantDate(true);
         })
         .catch((err) => {
           console.log(err);
           setSpin(false);
+          setcroissantAuteur(false);
+          setcroissantCategorie(false);
+          setcroissantReponse(false);
+          setcroissantDate(true);
         });
       };
         setTimeout(() => {

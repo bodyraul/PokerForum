@@ -26,7 +26,7 @@ router.post("/creerPost",auth,async(req,res)=>{
     if(mois>0 && mois <10){
         mois ="0"+mois;
     }
-    const dateCreation = ""+jour+"/"+mois+"/"+annee+"";
+    const dateCreation = ""+annee+"-"+mois+"-"+jour+"";
     const heureCreation = ""+heure+":"+minute+":"+seconde+"";
     
     const tab = await User.find({_id : user});

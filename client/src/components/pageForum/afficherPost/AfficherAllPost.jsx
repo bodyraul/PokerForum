@@ -13,7 +13,7 @@ export default function AfficherAllPost() {
       {currentPosts.map((element,index) => {
           return (
               <div key={element._id}>
-                  <CategoriePost index={index}/>
+                  <CategoriePost  index={index}/>
                   <ContentPost element={element}/>
               </div>
           );

@@ -6,15 +6,19 @@ import { useContext } from 'react';
 import ListePostContext from '../../Context/ListePostContext';
 import PagePostContext from '../../Context/PagePostContext';
 import SpinnerContext from '../../Context/SpinnerContext';
+import TrieContext from '../../Context/TrieContext';
 
 export default function BtnPost({nb}) {
   const {setcurrentPage}=useContext(PagePostContext);
   const {setlistePost}= useContext(ListePostContext);
   const{setSpin}=useContext(SpinnerContext);
+  const {setcroissantCategorie,setcroissantAuteur,setcroissantDate,setcroissantReponse}=useContext(TrieContext);
   return (
     <button onClick={
       tabBtnPost.boolean[nb]===true?
-      ()=>{AfficheAllPost(setlistePost,setSpin); setcurrentPage(1)}
+      ()=>{AfficheAllPost(setlistePost,setSpin,setcroissantCategorie,setcroissantAuteur,setcroissantDate,setcroissantReponse); 
+      setcurrentPage(1);
+    }
     :
     ScrollToNewPost
     } 

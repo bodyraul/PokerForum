@@ -12,6 +12,7 @@ export default function UseNbPagePost(){
     const indexOfFirstPost = indexOfLastPost-postPerPage;
     const currentPosts = listePost.slice(indexOfFirstPost,indexOfLastPost);
     const nbPage = Math.ceil(listePost.length/postPerPage);
+    
 
     return {currentPosts,currentPage,setcurrentPage,nbPage};
 }

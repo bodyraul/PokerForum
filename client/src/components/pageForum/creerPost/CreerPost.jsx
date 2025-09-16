@@ -8,8 +8,8 @@ import UseVariableCreerPost from '../../../customHoocks/forum/UseVariableCreerPo
 
 
 export default function CreerPost({config}) {
-    const {setcurrentPage,valueTitrePost,setvalueTitrePost,radioValue,setradioValue,errorMsgPost,errorMsgCreerPost
-    ,seterrorMsgCreerPost,token,listePost,setlistePost}=UseVariableCreerPost();
+    const {setcurrentPage,valueTitrePost,setvalueTitrePost,radioValue,setradioValue,errorMsgPost,errorMsgCreerPost,seterrorMsgCreerPost
+      ,token,listePost,setlistePost,setcroissantCategorie,setcroissantAuteur,setcroissantDate,setcroissantReponse}=UseVariableCreerPost();
 
   return (
     <div className=" sup1024:flex-row sup1024:items-start sup1024:justify-center sup1024:w-[95%]  w-full  mx-auto  flex flex-col items-center justify-center max-w-[1800px] ">
@@ -18,7 +18,8 @@ export default function CreerPost({config}) {
           <ChoiseCategoriePost setradioValue={setradioValue} />
           <ErorMsgPost errorMsgCreerPost={errorMsgCreerPost} errorMsgPost={errorMsgPost} />
           <button className="sup480:text-[11px] sup480:px-[14px] sup768:text-[13px] sup768:px-[16px] sup1024:text-[15px] sup1024:px-[18px] sup1600:text-[16px] sup1600:px-[20px] text-[10px] py-[8px] px-[12px] text-vertFoncer border-solid border border-vertFoncer bg-blanc rounded-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertFoncer hover:text-blanc"
-              onClick={()=>newPost(errorMsgPost,token,seterrorMsgCreerPost,config,radioValue,valueTitrePost,setlistePost,listePost,setradioValue,setvalueTitrePost,setcurrentPage)}
+              onClick={()=>newPost(errorMsgPost,token,seterrorMsgCreerPost,config,radioValue,valueTitrePost,setlistePost,listePost,
+                setradioValue,setvalueTitrePost,setcurrentPage,setcroissantCategorie,setcroissantAuteur,setcroissantDate,setcroissantReponse)}
           >
             Créer
           </button>

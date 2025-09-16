@@ -4,6 +4,7 @@ import ListePostContext from '../../../Context/ListePostContext';
 import CategorieContext from '../../../Context/CategorieContext';
 import PagePostContext from '../../../Context/PagePostContext';
 import SpinnerContext from '../../../Context/SpinnerContext';
+import TrieContext from '../../../Context/TrieContext';
 
 export default function AfficheCategorie({boolCategorieSearch,choiseCategoriesSearch}) {
     
@@ -11,6 +12,7 @@ export default function AfficheCategorie({boolCategorieSearch,choiseCategoriesSe
     const {setlistePost}=useContext(ListePostContext);
     const {setcurrentPage}=useContext(PagePostContext);
     const {setSpin}= useContext(SpinnerContext);
+    const {setcroissantCategorie,setcroissantReponse,setcroissantDate,setcroissantAuteur}= useContext(TrieContext);
 
     if(boolCategorieSearch){
         return(
@@ -20,7 +22,7 @@ export default function AfficheCategorie({boolCategorieSearch,choiseCategoriesSe
                     <input
                         className="sup480:text-[12px] sup480:h-[26px] sup768:text-[13px] sup768:h-[33px] sup1024:text-[14px] sup1024:h-[38px] sup1600:text-[15px] sup1600:h-[40px] text-[9px] text-center text-blanc w-full h-[22px] border-solid border border-l-0 border-r-0 border-t-0 border-b-blanc bg-vertFoncer outline-none transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-blanc hover:text-vertFoncer hover:border-vertFoncer "
                         key={element._id} type="input" defaultValue={element.titre}
-                        onClick={(e)=> choiseCategoriesSearch(e,setlistePost,setcurrentPage,setSpin)}
+                        onClick={(e)=> choiseCategoriesSearch(e,setlistePost,setcurrentPage,setSpin,setcroissantCategorie,setcroissantReponse,setcroissantDate,setcroissantAuteur)}
                     />
                     );
                 })}

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost,setcurrentPage,seterrorMsgCategorie,setSpin){
+export default function valideRecherche(setlistePost,valueAuteurSujet,recherchePost,setrecherchePost,setcurrentPage,seterrorMsgCategorie,setSpin,setcroissantCategorie,setcroissantAuteur,setcroissantDate,setcroissantReponse){
 
     if(recherchePost===""){
         seterrorMsgCategorie("La recherche est vide.")
@@ -17,6 +17,10 @@ export default function valideRecherche(setlistePost,valueAuteurSujet,rechercheP
                 setlistePost(res.data);
                 setcurrentPage(1);
                 setSpin(false);
+                setcroissantAuteur(false);
+                setcroissantCategorie(false);
+                setcroissantDate(true);
+                setcroissantReponse(false);
             })
             .catch((err) => {
                 if(err.response.status===404){
@@ -36,6 +40,10 @@ export default function valideRecherche(setlistePost,valueAuteurSujet,rechercheP
                 setlistePost(res.data);
                 setcurrentPage(1);
                 setSpin(false);
+                setcroissantAuteur(false);
+                setcroissantCategorie(false);
+                setcroissantDate(true);
+                setcroissantReponse(false);
             })
             .catch((err) => {
                 if(err.response.status===404){

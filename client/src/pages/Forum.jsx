@@ -13,6 +13,7 @@ import SpinnerContext from '../Context/SpinnerContext';
 import Spinner from '../componentsResutilisable/globale/Spinner';
 import TitreForum from '../components/pageForum/titre/TitreForum';
 import TitrePost from '../components/pageForum/titre/TitrePost';
+import TrieContext from '../Context/TrieContext';
 
 export default function Forum({config}) {
   
@@ -21,11 +22,16 @@ export default function Forum({config}) {
   const [currentPage, setcurrentPage] = useState(1);
   const [errorMsgCategorie, seterrorMsgCategorie] = useState("");
   const {spin}=useContext(SpinnerContext);
-  
+  const [croissantCategorie, setcroissantCategorie] = useState(false);
+  const [croissantReponse, setcroissantReponse] = useState(false);
+  const [croissantAuteur, setcroissantAuteur] = useState(false);
+  const [croissantDate, setcroissantDate] = useState(true);
+   
   return (
       <CategorieContext.Provider value={{categories,seterrorMsgCategorie,errorMsgCategorie}}>
       <PagePostContext.Provider value={{currentPage,setcurrentPage}}>
       <ListePostContext.Provider value={{listePost,setlistePost}}>
+      <TrieContext.Provider value={{croissantCategorie,setcroissantCategorie,croissantReponse,setcroissantReponse,croissantAuteur,setcroissantAuteur,croissantDate,setcroissantDate}}>
         {
           spin ? 
             <Spinner/>
@@ -39,6 +45,7 @@ export default function Forum({config}) {
               <CreerPost config={config}/>
             </div>
         }
+      </TrieContext.Provider>
       </ListePostContext.Provider>
       </PagePostContext.Provider>  
       </CategorieContext.Provider>

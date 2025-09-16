@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export default function AfficheAllPost(setlistePost,setSpin){
+export default function AfficheAllPost(setlistePost,setSpin,setcroissantCategorie,setcroissantAuteur,setcroissantDate,setcroissantReponse){
     setSpin(true);
     setTimeout(() => {
         axios
@@ -8,6 +8,10 @@ export default function AfficheAllPost(setlistePost,setSpin){
         .then((res) => {
             setlistePost(res.data);
             setSpin(false);
+            setcroissantAuteur(false);
+            setcroissantCategorie(false);
+            setcroissantDate(true);
+            setcroissantReponse(false);
         })
         .catch((err) => {
             console.log(err);
