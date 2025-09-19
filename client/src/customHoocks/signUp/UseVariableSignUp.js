@@ -5,14 +5,35 @@ import SigneUpInContext from "../../Context/SIgneUpInContext"
 
 export default function UseVariableSignUp(){
     const {signIn,setSignIn,signUp,setSignUp} = useContext(SigneUpInContext);
-    const [nom, setnom] = useState("")
-    const [prenom, setprenom] = useState("")
-    const [pseudonyme, setpseudonyme] = useState("")
-    const [email, setemail] = useState("")
-    const [password, setpassword] = useState("")
-    const [confirmMdp, setconfirmMdp] = useState("")
+    const [valueInputSignUp, setvalueInputSignUp] = useState({
+        nom:"",
+        prenom:"",
+        pseudonyme:"",
+        email:"",
+        password:"",
+        confirmMdp:"",
+    })
+    const  [errTypeSignUp, seterrTypeSignUp] = useState({
+          nom:true,
+          prenom:true,
+          mail:true,
+          mdp:"Sécurité faible",
+          confirmMdp:true,
+        })
+        const [errNbSignUp, seterrNbSignUp] = useState({
+          nom:true,
+          prenom:true,
+          pseudo:true,
+          mail:true,
+          mdp:true
+        })
+    
+        const [mdpCacher, setmdpCacher] = useState({
+          mdp:true,
+          confirmMdp:true
+        })
     const [errorMsg, seterrorMsg] = useState("");
     const formSignUp = useRef();
-    return {signIn,setSignIn,signUp,setSignUp,nom,setnom,prenom,setprenom,pseudonyme,setpseudonyme,
-    email,setemail,password,setpassword,confirmMdp,setconfirmMdp,errorMsg,seterrorMsg,formSignUp};
+    return {signIn,setSignIn,signUp,setSignUp,valueInputSignUp,setvalueInputSignUp,errorMsg,seterrorMsg,formSignUp,errTypeSignUp,seterrTypeSignUp,
+        errNbSignUp,seterrNbSignUp,mdpCacher,setmdpCacher};
 }

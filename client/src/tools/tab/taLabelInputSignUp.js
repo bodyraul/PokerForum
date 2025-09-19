@@ -7,7 +7,7 @@ const tabLabelInputSignUp={
     text:text,
     htmlFor:htmlFor,
     id:id,
-    placeholder
+    placeholder:placeholder
 }
 
 export default tabLabelInputSignUp;

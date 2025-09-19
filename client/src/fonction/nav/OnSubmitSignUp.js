@@ -1,28 +1,23 @@
 import axios from "axios";
-import gestionErrorInscription from "../gestionError/GestionErrorInscription";
+import resetSignUp from "./ResetSignUp";
 
-export default function onSubmitsSignUp (nom,prenom,pseudonyme,email,password,confirmMdp,setSignUpProps,signUpProps,seterrorMsg,setSignInProps,signInProps,setnom,setprenom,setpseudonyme,setemail,setpassword,setconfirmMdp){
+export default function onSubmitsSignUp (seterrTypeSignUp,seterrNbSignUp,setvalueInputSignUp,valueInputSignUp,setSignUpProps,signUpProps,seterrorMsg,setSignInProps,signInProps,setmdpCacher){
 
-    const error=gestionErrorInscription(nom,prenom,pseudonyme,email,password,confirmMdp,seterrorMsg);
-
-    if(error=== false){
-      const user = {nom, prenom, pseudonyme, email, password}
+  console.log("click")
+    const user = {nom:valueInputSignUp.nom, prenom:valueInputSignUp.prenom, pseudonyme:valueInputSignUp.pseudonyme, email:valueInputSignUp.email, password:valueInputSignUp.password}
       axios.post("/user/register",user)
       .then((res)=>{
         setSignUpProps(!signUpProps);
         setSignInProps(!signInProps);
-        setemail("");
-        setconfirmMdp("");
-        setnom("");
-        setprenom("");
-        setpseudonyme("");
-        setpassword("");
+        seterrTypeSignUp({...resetSignUp("resetErrTypeSignUp")});
+        seterrNbSignUp({...resetSignUp("resetErrNbSignUp")});
+        setvalueInputSignUp({...resetSignUp("resetValueInput")});
+        setmdpCacher({...resetSignUp("resetCacherMdp")});
         seterrorMsg("");
       })
       .catch((err)=>{
         if(err.response.status===404){
-          seterrorMsg(err.response.data)
+          console.log(err)
         }
       })
-    }
   }
