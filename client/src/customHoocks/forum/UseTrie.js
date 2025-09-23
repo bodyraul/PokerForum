@@ -74,7 +74,7 @@ export default function UseTrie() {
   const trieDate=()=>{
     if(croissantDate===false){
       const trie = [...listePost]
-      trie.sort((a, b) => new Date(a.dateCreation) - new Date(b.dateCreation));
+      trie.sort((a, b) => new Date(b.dateCreation) - new Date(a.dateCreation));
       setlistePost([...trie]);
       setcroissantDate(true);
       setcroissantCategorie(false);
@@ -83,7 +83,7 @@ export default function UseTrie() {
     }
     if(croissantDate===true){
       const trie = [...listePost]
-      trie.sort((a, b) => new Date(b.dateCreation) - new Date(a.dateCreation));
+      trie.sort((a, b) => new Date(a.dateCreation) - new Date(b.dateCreation));
       setlistePost([...trie]);
       setcroissantDate(false);
       setcroissantCategorie(false);

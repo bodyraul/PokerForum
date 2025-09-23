@@ -1,4 +1,4 @@
-const text =["Mails","Password"];
+const text =["Email","Password"];
 const htlmFor = text;
 const id = text;
 const placerholder = ["texte@exemple.com","*******"];

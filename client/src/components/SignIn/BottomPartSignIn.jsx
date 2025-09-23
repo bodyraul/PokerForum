@@ -12,7 +12,7 @@ export default function BottomPartSignIn() {
             Connexion
             </button>
         </div>
-        <p className="sup480:text-[13px] sup480:pt-[14px] sup768:text-[15px] sup768:pt-[16px] sup1024:text-[17px] sup1024:pt-[18px] sup1600:text-[19px] sup1600:pt-[19px] text-[11px] text-error pt-[12px] ">{errorMsg} </p>
+        <p className="flex items-center justify-center sup480:text-[13px] sup480:translate-y-[14px] sup768:text-[15px] sup1024:text-[17px] sup1024:h-[30px] sup1600:text-[19px] sup1600:h-[40px] text-[11px] h-[20px] text-errorDeux transform translate-y-[10px] ">{errorMsg} </p>
     </>
   )
 }

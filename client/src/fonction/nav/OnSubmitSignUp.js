@@ -17,7 +17,7 @@ export default function onSubmitsSignUp (seterrTypeSignUp,seterrNbSignUp,setvalu
       })
       .catch((err)=>{
         if(err.response.status===404){
-          console.log(err)
+          seterrorMsg(err.response.data)
         }
       })
   }

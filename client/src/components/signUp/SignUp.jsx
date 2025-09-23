@@ -15,7 +15,7 @@ export default function SignUp() {
 
   return (
    <SigneUpContext.Provider value={{signIn,setSignIn,signUp,setSignUp,valueInputSignUp,setvalueInputSignUp,errorMsg,seterrorMsg,errTypeSignUp,seterrTypeSignUp,errNbSignUp,seterrNbSignUp,setmdpCacher,mdpCacher}}>
-       <form onSubmit={(e)=>e.preventDefault()} ref={formSignUp} className="sup377:w-[350px] sup480:h-[570] sup480:w-[400px] sup768:w-[470px] sup768:h-[620px]  sup1024:w-[530px] sup1024:h-[680px] sup1600:h-[750px] sup1600:w-[600px] fixed top-2/4 left-2/4 w-full h-[550px]  bg-vertFoncer z-50 -translate-x-2/4 -translate-y-2/4 rounded-3xl py-[39px] px-[12px] hidden flex-col items-center justify-between ">
+       <form onSubmit={(e)=>e.preventDefault()} ref={formSignUp} className="sup377:w-[350px] sup480:h-[570] sup480:w-[400px] sup768:w-[470px] sup768:h-[620px]  sup1024:w-[530px] sup1024:h-[680px] sup1600:h-[800px] sup1600:w-[600px] fixed top-2/4 left-2/4 w-full h-[540px]  bg-vertFoncer z-50 -translate-x-2/4 -translate-y-2/4 rounded-3xl py-[39px] px-[12px] hidden flex-col items-center justify-between ">
         <TopPartSignUp/>
         <PartLabelInputSignUp/>
         <BottomPartSignUp/>

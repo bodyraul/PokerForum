@@ -38,11 +38,11 @@ export default function InputNomPrenom() {
         </div>
 
 
-        <div className={`w-full flex items-start justify-evenly  `}>
+        <div className={`sup480:text-[11px] sup768:text-[13px] sup1024:text-[15px] sup1600:text-[16px] text-[9px] w-full flex items-start justify-evenly  `}>
             <div className='flex flex-col justify-start w-[40%]'>
-                <span className={`${errTypeSignUp.nom===true? "text-errorDeux":"text-valide"}`} >- Ne contient que des lettres.</span>
+                <span className={` ${errTypeSignUp.nom===true? "text-errorDeux":"text-valide"}`} >- Ne contient que des lettres.</span>
                 <span className={`${errNbSignUp.nom===true? "text-errorDeux":"text-valide"}`} >- 2 caractères minimum.</span>
-                </div>
+            </div>
             <div className='flex flex-col justify-start w-[40%]' >
                 <span className={`${errTypeSignUp.prenom===true? "text-errorDeux":"text-valide"}`} >- Ne contient que des lettres.</span>
                 <span className={`${errNbSignUp.prenom===true? "text-errorDeux":"text-valide"}`} >- 2 caractères minimum.</span>
