@@ -1,10 +1,8 @@
 import React from 'react'
 import arrowDown from "../../assets/img/arrow.png"
 import arowUp from "../../assets/img/arowUp.png"
-import { useEffect } from 'react'
 
 export default function ThemePost({children,index,fonction,croissant}) {
-  
   
   if(index===0){
     return(

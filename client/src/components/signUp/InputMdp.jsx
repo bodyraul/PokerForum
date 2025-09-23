@@ -8,11 +8,12 @@ import couleurSecuriteMdp from '../../fonction/nav/CouleurSecuriteMdp';
 import cacher from '../../assets/img/cacher.png'
 import cacherMdp from '../../fonction/nav/CacherMdp';
 import cacherConfirmMdp from '../../fonction/nav/CacherConfirmMdp';
+import SigneUpInContext from '../../Context/SIgneUpInContext';
 
 export default function InputMdp() {
 
-    const{seterrorMsg,valueInputSignUp,setvalueInputSignUp,errTypeSignUp, seterrTypeSignUp,errNbSignUp, seterrNbSignUp,setmdpCacher,mdpCacher}=useContext(SigneUpContext);
-
+  const{valueInputSignUp,setvalueInputSignUp,errTypeSignUp, seterrTypeSignUp,errNbSignUp, seterrNbSignUp,setmdpCacher,mdpCacher}=useContext(SigneUpContext);
+  const{errMsgNav, seterrMsgNav}=useContext(SigneUpInContext);
   return (
     <>
         <div className="w-full flex items-start justify-evenly">
@@ -26,7 +27,9 @@ export default function InputMdp() {
                 valideTypeMdp(e,errTypeSignUp,seterrTypeSignUp);
                 valideNbMdp(e,errNbSignUp,seterrNbSignUp);
                 }}
-                onClick={()=>seterrorMsg("")}
+                onClick={()=>seterrMsgNav({
+                  ...errMsgNav,signUp:"",
+                })}
                 id="Mot de passe"
                 value={valueInputSignUp.password}
               />
@@ -41,7 +44,9 @@ export default function InputMdp() {
                 setvalueInputSignUp({...valueInputSignUp,confirmMdp:e.target.value})
                 valideConfirmMdp(e,valueInputSignUp,seterrTypeSignUp,errTypeSignUp);
                 }}
-                onClick={()=>seterrorMsg("")}
+                onClick={()=>seterrMsgNav({
+                  ...errMsgNav,signUp:"",
+                })}
                 id="Confirmation"
                 value={valueInputSignUp.confirmMdp}
               />

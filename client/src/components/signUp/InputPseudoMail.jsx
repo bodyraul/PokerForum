@@ -3,11 +3,12 @@ import validePseudo from '../../fonction/nav/ValidePseudo';
 import valideMail from '../../fonction/nav/ValideMail';
 import { useContext } from 'react';
 import SigneUpContext from '../../Context/SignUpContext';
+import SigneUpInContext from '../../Context/SIgneUpInContext';
 
 export default function InputPseudoMail() {
 
-    const{seterrorMsg,valueInputSignUp,setvalueInputSignUp,errTypeSignUp, seterrTypeSignUp,errNbSignUp, seterrNbSignUp}=useContext(SigneUpContext);
-
+    const{valueInputSignUp,setvalueInputSignUp,errTypeSignUp, seterrTypeSignUp,errNbSignUp, seterrNbSignUp}=useContext(SigneUpContext);
+    const{errMsgNav, seterrMsgNav}=useContext(SigneUpInContext);
   return (
     <>
         <div className="w-full flex items-start justify-evenly">
@@ -19,7 +20,9 @@ export default function InputPseudoMail() {
                 setvalueInputSignUp({...valueInputSignUp,pseudonyme:e.target.value});
                 validePseudo(e,errNbSignUp,seterrNbSignUp);
                 }}
-                onClick={()=>seterrorMsg("")}
+                onClick={()=>seterrMsgNav({
+                  ...errMsgNav,signUp:"",
+                })}
                 id="Pseudonyme"
                 value={valueInputSignUp.pseudonyme}
             />
@@ -32,7 +35,9 @@ export default function InputPseudoMail() {
                 setvalueInputSignUp({...valueInputSignUp,email:e.target.value})
                 valideMail(e,errTypeSignUp,seterrTypeSignUp,errNbSignUp,seterrNbSignUp);
                 }}
-                onClick={()=>seterrorMsg("")}
+                onClick={()=>seterrMsgNav({
+                  ...errMsgNav,signUp:"",
+                })}
                 id="Mail"
                 value={valueInputSignUp.email}
             />

@@ -9,15 +9,17 @@ import UseVariableMsgPost from '../customHoocks/message/UseVariableMsgPost';
 import Spinner from '../componentsResutilisable/globale/Spinner';
 import BtnAccesCreerMsg from '../components/pageMsgPost/Btn/BtnAccesCreerMsg';
 import BtnRetourMsg from '../components/pageMsgPost/Btn/BtnRetourMsg';
+import TrieMsgContext from '../Context/TrieMsgContext';
 
 export default function MessagePosts() {
 
   const {currentPage,setcurrentPage,token,titrecontenu,id,valueMsgForm,setvalueMsgForm,messageErreur
-    ,setmessageErreur,paraMessageErreur,config,spin} = UseVariableMsgPost();
+    ,setmessageErreur,paraMessageErreur,config,spin,croissantAuteur,setcroissantAuteur,croissantDate,setcroissantDate} = UseVariableMsgPost();
 
   const {post,message,setMessage}= UseMessagePost(config,id);
 
   return (
+    <TrieMsgContext.Provider value={{croissantAuteur,setcroissantAuteur,croissantDate,setcroissantDate}}>
     <PageMsgContext.Provider value={{currentPage,setcurrentPage}}>
       {
         spin ? 
@@ -26,12 +28,13 @@ export default function MessagePosts() {
         <div className="sup480:pt-[110px] sup768:pt-[150px] sup1024:pt-[170px] sup1600:pt-[190px] pt-[90px] w-[100%] max-w-[1800px] mx-auto my-0 ">
           <AfficheLePost listePost={post}/>
           <BtnAccesCreerMsg/>
-          <AfficheMessage message={message} titrecontenu={titrecontenu} />
+          <AfficheMessage message={message} setMessage={setMessage} titrecontenu={titrecontenu} />
           <BtnRetourMsg message={message} />
           <CreerMessage valueMsgForm={valueMsgForm} setvalueMsgForm={setvalueMsgForm}  paraMessageErreur={paraMessageErreur} setmessageErreur={setmessageErreur} 
           messageErreur={messageErreur} valideFormMessage={()=>NewMessage(token,setmessageErreur,valueMsgForm,id,config,paraMessageErreur,setMessage,setvalueMsgForm,message,setcurrentPage)} />
         </div>
       }
     </PageMsgContext.Provider>
+    </TrieMsgContext.Provider>
   )
 }

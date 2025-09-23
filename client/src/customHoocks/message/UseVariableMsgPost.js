@@ -16,6 +16,8 @@ export default function UseVariableMsgPost(){
     const paraMessageErreur = useRef();
     const config = Configuration(token);
     const {spin}=useContext(SpinnerContext);
-    return{currentPage,setcurrentPage,token,titrecontenu,id,valueMsgForm,
-    setvalueMsgForm,messageErreur,setmessageErreur,paraMessageErreur,config,spin}
+      const [croissantAuteur, setcroissantAuteur] = useState(false);
+      const [croissantDate, setcroissantDate] = useState(true);
+    return{currentPage,setcurrentPage,token,titrecontenu,id,valueMsgForm,setvalueMsgForm,messageErreur,
+        setmessageErreur,paraMessageErreur,config,spin,croissantAuteur,setcroissantAuteur,croissantDate,setcroissantDate}
 }

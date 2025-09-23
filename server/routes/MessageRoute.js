@@ -38,7 +38,7 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
             mois ="0"+mois;
         }
         
-        const dateCreation = ""+jour+"/"+mois+"/"+annee+"";
+        const dateCreation = ""+annee+"-"+mois+"-"+jour+"";
         const heureCreation = ""+heure+":"+minute+":"+seconde+"";
 
         await verifIdPost.save();

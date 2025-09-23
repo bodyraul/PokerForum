@@ -1,10 +1,10 @@
 import React from 'react'
 import ThemePost from "../../../componentsResutilisable/Forum/ThemePost"
-import UseTrie from '../../../customHoocks/forum/UseTrie'
+import UseTriePost from '../../../customHoocks/forum/UseTriePost'
 
 export default function CategoriePost({index}) {
 
-  const {trieDate,trieCategorie,triePseudo,trieReponse,croissantAuteur,croissantCategorie,croissantDate,croissantReponse}=UseTrie();
+  const {trieDate,trieCategorie,triePseudo,trieReponse,croissantAuteur,croissantCategorie,croissantDate,croissantReponse}=UseTriePost();
 
   return (
   <div className=" h-[48px] flex items-center border-solid border border-gris bg-blanc text-vertFoncer font-bold ">

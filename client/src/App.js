@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import MessagePosts from "./pages/MessagePosts";
 import Forum from "./pages/Forum";
@@ -12,14 +12,17 @@ import SpinnerContext from "./Context/SpinnerContext";
 
 function App() {
   const {token,settoken,config,pseudo,setpseudo,signIn,setSignIn,signUp,setSignUp,spin,setSpin}=UseTokenConfig();
+  const [errMsgNav, seterrMsgNav] = useState({
+    signUp:"",
+    signIn:""
+  })
 
   return (
     <div >
-   
-        <BrowserRouter>
+      <BrowserRouter>
         <SpinnerContext.Provider value={{spin,setSpin}}>
         <AuthContext.Provider value={{token,settoken,pseudo,setpseudo}}>
-          <SigneUpInContext.Provider value={{signIn,setSignIn,signUp,setSignUp}} >
+          <SigneUpInContext.Provider value={{signIn,setSignIn,signUp,setSignUp,errMsgNav,seterrMsgNav}} >
             <Navbar />
             <SignUp/>
             <SignIn/>
@@ -31,7 +34,6 @@ function App() {
         </AuthContext.Provider>
         </SpinnerContext.Provider>
       </BrowserRouter>
-   
     </div>
   );
 }

@@ -1,4 +1,7 @@
-export default function  clickConnexion (setSignUpProps,setSignInProps,signInProps) {
+export default function  clickConnexion (setSignUpProps,setSignInProps,signInProps,errMsgNav,seterrMsgNav) {
     setSignInProps(!signInProps);
-     setSignUpProps(false);
+    setSignUpProps(false);
+    seterrMsgNav({
+        ...errMsgNav,signIn:"",signUp:"",
+     })
   }

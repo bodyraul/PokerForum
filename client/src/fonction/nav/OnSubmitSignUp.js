@@ -1,7 +1,7 @@
 import axios from "axios";
 import resetSignUp from "./ResetSignUp";
 
-export default function onSubmitsSignUp (seterrTypeSignUp,seterrNbSignUp,setvalueInputSignUp,valueInputSignUp,setSignUpProps,signUpProps,seterrorMsg,setSignInProps,signInProps,setmdpCacher){
+export default function onSubmitsSignUp (seterrTypeSignUp,seterrNbSignUp,setvalueInputSignUp,valueInputSignUp,setSignUpProps,signUpProps,errMsgNav,seterrMsgNav,setSignInProps,signInProps,setmdpCacher){
 
   console.log("click")
     const user = {nom:valueInputSignUp.nom, prenom:valueInputSignUp.prenom, pseudonyme:valueInputSignUp.pseudonyme, email:valueInputSignUp.email, password:valueInputSignUp.password}
@@ -13,11 +13,15 @@ export default function onSubmitsSignUp (seterrTypeSignUp,seterrNbSignUp,setvalu
         seterrNbSignUp({...resetSignUp("resetErrNbSignUp")});
         setvalueInputSignUp({...resetSignUp("resetValueInput")});
         setmdpCacher({...resetSignUp("resetCacherMdp")});
-        seterrorMsg("");
+        seterrMsgNav({
+          ...errMsgNav,signUp:"",signIn:"inscription validé, connectez-vous!"
+        });
       })
       .catch((err)=>{
         if(err.response.status===404){
-          seterrorMsg(err.response.data)
+          seterrMsgNav({
+          ...errMsgNav,signUp:err.response.data
+        });
         }
       })
   }

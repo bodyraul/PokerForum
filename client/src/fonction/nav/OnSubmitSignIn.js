@@ -1,9 +1,9 @@
 import axios from "axios";
 import gestionErrorConnexion from "../gestionError/GestionErrorConnexion";
 
-export default function onSubmitsSignIn (email,password,settoken,setpseudo,setSignInProps,signInProps,seterrorMsg,setemail,setpassword){
+export default function onSubmitsSignIn (email,password,settoken,setpseudo,setSignInProps,signInProps,seterrMsgNav,errMsgNav,setemail,setpassword){
 
-    const error = gestionErrorConnexion(password,email,seterrorMsg);
+    const error = gestionErrorConnexion(password,email,seterrMsgNav,errMsgNav);
     if(error===false){
       const user = {email,password}
       axios.post("/user/login",user)
@@ -18,7 +18,9 @@ export default function onSubmitsSignIn (email,password,settoken,setpseudo,setSi
       })
       .catch((err)=>{
         if(err.response.status===404){
-          seterrorMsg(err.response.data);
+          seterrMsgNav({
+            ...errMsgNav,signIn:err.response.data,
+          })
         }
       })
     }

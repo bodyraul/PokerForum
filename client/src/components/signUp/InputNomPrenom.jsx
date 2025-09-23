@@ -3,11 +3,12 @@ import valideNom from '../../fonction/nav/ValideNom';
 import validePrenom from '../../fonction/nav/ValidePrenom';
 import { useContext } from 'react';
 import SigneUpContext from '../../Context/SignUpContext';
+import SigneUpInContext from '../../Context/SIgneUpInContext';
 
 export default function InputNomPrenom() {
 
-    const{seterrorMsg,valueInputSignUp,setvalueInputSignUp,errTypeSignUp, seterrTypeSignUp,errNbSignUp, seterrNbSignUp}=useContext(SigneUpContext);
-
+    const{valueInputSignUp,setvalueInputSignUp,errTypeSignUp, seterrTypeSignUp,errNbSignUp, seterrNbSignUp}=useContext(SigneUpContext);
+    const{errMsgNav, seterrMsgNav}=useContext(SigneUpInContext);
   return (
     <>
         <div className="w-full flex items-start justify-evenly">
@@ -19,7 +20,9 @@ export default function InputNomPrenom() {
                 setvalueInputSignUp({...valueInputSignUp,nom:e.target.value});
                 valideNom(e,errTypeSignUp,seterrTypeSignUp,errNbSignUp,seterrNbSignUp);
             }}
-            onClick={()=>seterrorMsg("")}
+            onClick={()=>seterrMsgNav({
+                  ...errMsgNav,signUp:"",
+                })}
             id="Nom"
             value={valueInputSignUp.nom}
             />
@@ -31,7 +34,9 @@ export default function InputNomPrenom() {
                 setvalueInputSignUp({...valueInputSignUp,prenom:e.target.value})
                 validePrenom(e,errTypeSignUp,seterrTypeSignUp,errNbSignUp,seterrNbSignUp);
             }}
-            onClick={()=>seterrorMsg("")}
+            onClick={()=>seterrMsgNav({
+                  ...errMsgNav,signUp:"",
+                })}
             id="Prenom"
             value={valueInputSignUp.prenom}
             />

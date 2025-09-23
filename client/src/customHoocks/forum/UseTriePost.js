@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import TrieContext from '../../Context/TrieContext'
 import ListePostContext from '../../Context/ListePostContext';
 
-export default function UseTrie() {
+export default function UseTriePost() {
    const {croissantCategorie,setcroissantCategorie,croissantReponse,setcroissantReponse,
   croissantAuteur,setcroissantAuteur,croissantDate,setcroissantDate}=useContext(TrieContext);
   const {setlistePost,listePost}= useContext(ListePostContext);
