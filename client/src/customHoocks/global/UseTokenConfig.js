@@ -12,5 +12,9 @@ export default function UseTokenConfig(){
         Authorization: `Bearer ${token}`,
         },
     };
-    return {token,settoken,config,pseudo,setpseudo,signIn,setSignIn,signUp,setSignUp,spin,setSpin}
+    const [errMsgNav, seterrMsgNav] = useState({
+        signUp:"",
+        signIn:""
+      })
+    return {token,settoken,config,pseudo,setpseudo,signIn,setSignIn,signUp,setSignUp,spin,setSpin,errMsgNav, seterrMsgNav}
 }

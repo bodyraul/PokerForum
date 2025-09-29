@@ -24,7 +24,6 @@ export default function UseTrieMsg(setMessage,message) {
 
   const trieDate=()=>{
     if(croissantDate===false){
-        console.log(message)
       const trie = [...message]
       trie.sort((a, b) => new Date(b.dateCreation) - new Date(a.dateCreation));
       setMessage([...trie]);
