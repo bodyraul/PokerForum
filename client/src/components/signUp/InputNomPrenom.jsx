@@ -6,9 +6,8 @@ import SigneUpContext from '../../Context/SignUpContext';
 import SigneUpInContext from '../../Context/SIgneUpInContext';
 
 export default function InputNomPrenom() {
-
     const{valueInputSignUp,setvalueInputSignUp,errTypeSignUp, seterrTypeSignUp,errNbSignUp, seterrNbSignUp}=useContext(SigneUpContext);
-    const{errMsgNav, seterrMsgNav}=useContext(SigneUpInContext);
+    const{errMsgNav,seterrMsgNav}=useContext(SigneUpInContext);
   return (
     <>
         <div className="w-full flex items-start justify-evenly">
@@ -20,9 +19,11 @@ export default function InputNomPrenom() {
                 setvalueInputSignUp({...valueInputSignUp,nom:e.target.value});
                 valideNom(e,errTypeSignUp,seterrTypeSignUp,errNbSignUp,seterrNbSignUp);
             }}
-            onClick={()=>seterrMsgNav({
+            onClick={(e)=>{
+                seterrMsgNav({
                   ...errMsgNav,signUp:"",
-                })}
+                })
+            }}
             id="Nom"
             value={valueInputSignUp.nom}
             />

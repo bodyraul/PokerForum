@@ -7,6 +7,7 @@ export default function UseTokenConfig(){
     const [signIn, setSignIn] = useState(false);
     const [signUp, setSignUp] = useState(false);
     const [spin, setSpin] = useState(true);
+    const [confidentialite, setconfidentialite] = useState(false);
     const config = {
         headers: {
         Authorization: `Bearer ${token}`,
@@ -16,5 +17,6 @@ export default function UseTokenConfig(){
         signUp:"",
         signIn:""
       })
-    return {token,settoken,config,pseudo,setpseudo,signIn,setSignIn,signUp,setSignUp,spin,setSpin,errMsgNav, seterrMsgNav}
+    return {token,settoken,config,pseudo,setpseudo,signIn,setSignIn,signUp,setSignUp,spin,setSpin,errMsgNav, seterrMsgNav,confidentialite
+        ,setconfidentialite}
 }

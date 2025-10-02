@@ -26,16 +26,18 @@
   background-color: #ffffff;
   border-radius: 20px;
   border: 3px solid #405B63;
-   
 }
 
 .VisibleContenuDeux::-webkit-scrollbar {
   width: 12px;
+  
 }
 
 
 .VisibleContenuDeux::-webkit-scrollbar-thumb {
-  background-color: #405B63;  
+  background-color: white;  
+  border: solid #405B63 2px;
+  border-radius: 10px;
 }
 
 

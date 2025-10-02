@@ -1,12 +1,22 @@
 import React from 'react'
+import { useEffect } from 'react'
 import UseLoadSignUp from '../../customHoocks/nav/UseLoadSignUp'
 import UseVariableSignUp from '../../customHoocks/signUp/UseVariableSignUp'
 import SigneUpContext from '../../Context/SignUpContext'
 import TopPartSignUp from './TopPartSignUp'
 import PartLabelInputSignUp from './PartLabelInputSignUp'
 import BottomPartSignUp from './BottomPartSignUp'
+import { useContext } from 'react'
+import AuthContext from '../../Context/AuthContext'
 
 export default function SignUp() {
+  const{setconfidentialite}=useContext(AuthContext);
+
+  useEffect(() => {
+    if(!localStorage.getItem("confidentialiteForumAurelien")){
+          return setconfidentialite(true);
+      }
+  }, [setconfidentialite])
 
   const {signIn,setSignIn,signUp,setSignUp,valueInputSignUp,setvalueInputSignUp,errorMsg,seterrorMsg,formSignUp,errTypeSignUp,seterrTypeSignUp,
         errNbSignUp,seterrNbSignUp,mdpCacher,setmdpCacher}= UseVariableSignUp();

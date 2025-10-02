@@ -6,7 +6,6 @@ import SigneUpContext from '../../Context/SignUpContext';
 import SigneUpInContext from '../../Context/SIgneUpInContext';
 
 export default function InputPseudoMail() {
-
     const{valueInputSignUp,setvalueInputSignUp,errTypeSignUp, seterrTypeSignUp,errNbSignUp, seterrNbSignUp}=useContext(SigneUpContext);
     const{errMsgNav, seterrMsgNav}=useContext(SigneUpInContext);
   return (

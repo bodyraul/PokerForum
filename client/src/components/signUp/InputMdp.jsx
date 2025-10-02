@@ -11,7 +11,6 @@ import cacherConfirmMdp from '../../fonction/nav/CacherConfirmMdp';
 import SigneUpInContext from '../../Context/SIgneUpInContext';
 
 export default function InputMdp() {
-
   const{valueInputSignUp,setvalueInputSignUp,errTypeSignUp, seterrTypeSignUp,errNbSignUp, seterrNbSignUp,setmdpCacher,mdpCacher}=useContext(SigneUpContext);
   const{errMsgNav, seterrMsgNav}=useContext(SigneUpInContext);
   return (
@@ -22,7 +21,7 @@ export default function InputMdp() {
                 placeholder="******"
                 type={mdpCacher.mdp===true? "password":"text"}
                 autoComplete='new-password'
-                onChange={(e)=>{
+                onChange={(e)=>{ 
                 setvalueInputSignUp({...valueInputSignUp,password:e.target.value})
                 valideTypeMdp(e,errTypeSignUp,seterrTypeSignUp);
                 valideNbMdp(e,errNbSignUp,seterrNbSignUp);
