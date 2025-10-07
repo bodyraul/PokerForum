@@ -11,11 +11,11 @@ export default function PartBtnConfidentialite() {
       <button onClick={()=>{
           localStorage.setItem("confidentialiteForumAurelien", "oui")
           setconfidentialite(false);
-      }} className=" border border-vertFoncer rounded-[10px] px-[10px] py-[5px] transition-all duration-300 ease-in-out hover:bg-vertFoncer hover:text-blanc hover:border-blanc hover:cursor-pointer " >Accepter</button>
+      }} className="sup480:text-[14px] sup480:px-[6px] sup768:text-[16px] sup1024:text-[17px] sup1024:px-[7px] sup1600:text-[18px] text-[12px] px-[5px] py-[3px] border border-vertFoncer rounded-[10px]  transition-all duration-300 ease-in-out hover:bg-vertFoncer hover:text-blanc hover:border-blanc hover:cursor-pointer " >Accepter</button>
       <button onClick={()=>{
         setconfidentialite(false);
         setSignUp(false);
-      }} className=" border border-vertFoncer rounded-[10px] px-[10px] py-[5px] transition-all duration-300 ease-in-out hover:bg-vertFoncer hover:text-blanc hover:border-blanc hover:cursor-pointer " >Refuser</button>
+      }} className="sup480:text-[14px] sup480:px-[6px] sup768:text-[16px] sup1024:text-[17px] sup1024:px-[7px] sup1600:text-[18px] text-[12px] px-[5px] py-[3px] border border-vertFoncer rounded-[10px] transition-all duration-300 ease-in-out hover:bg-vertFoncer hover:text-blanc hover:border-blanc hover:cursor-pointer " >Refuser</button>
     </div>
   )
 }
