@@ -3,7 +3,6 @@ import resetSignUp from "./ResetSignUp";
 
 export default function onSubmitsSignUp (seterrTypeSignUp,seterrNbSignUp,setvalueInputSignUp,valueInputSignUp,setSignUpProps,signUpProps,errMsgNav,seterrMsgNav,setSignInProps,signInProps,setmdpCacher){
 
-  console.log("click")
     const user = {nom:valueInputSignUp.nom, prenom:valueInputSignUp.prenom, pseudonyme:valueInputSignUp.pseudonyme, email:valueInputSignUp.email, password:valueInputSignUp.password}
       axios.post("/user/register",user)
       .then((res)=>{
