@@ -1,5 +1,4 @@
-Bonjour à tous, j'ai créé ce forum de poker à l'aide de React, Node, MongoDb et Tailwind.
-Le but ici est de faire un descriptif détaillé de mon application.
+Bonjour à tous, le but ici est de faire un descriptif détaillé de mon application.
 
 Performances : 
 
