@@ -15,7 +15,7 @@ Exemple de composant :
 Ici j'ai créé un composant(AfficheMessage) qui permet d'afficher les messages d'un post du forum.
 Le Custom Hook "UseNbPageMsg" permet d'initialiser des states et de traiter le message qui provient des props.
 Je vais afficher le titre dans le composant "TitreMessage" que l'on va réutiliser dans notre application.
-Ensuite j'utilise la fonction map sur mon tableau de message avec un partie categorie et une partie contenu.
+Ensuite j'utilise la fonction map sur mon tableau de messages avec un partie categorie et une partie contenu.
 Enfin, je gère la partie pagination, s'il n'y a pas de message elle ne sera pas visible si non on l'active.
 
 Site Responsive : 
