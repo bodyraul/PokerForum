@@ -1,5 +1,7 @@
 Bonjour à tous, le but ici est de faire un descriptif détaillé de mon application.
 
+j'ai créé un forum pour que les gens puissent discuter sur les différents sujets du poker.
+
 Performances : 
 
 <img width="2547" height="1263" alt="PerformancesForum" src="https://github.com/user-attachments/assets/fa83d2ff-0b0b-4e84-b406-653cd18f5ed8" />
